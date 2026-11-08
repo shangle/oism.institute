@@ -13,7 +13,7 @@
 <body>
 
   <!-- =========================================================================
-       1. TOP INSTITUTIONAL UTILITY BAR (Asbury Seminary / Wharton Style)
+       1. SINGLE-ROW INSTITUTIONAL AUDIENCE GATEWAY BAR (Asbury / Wharton Top Bar)
        ========================================================================= -->
   <div class="utility-bar">
     <div class="utility-container">
@@ -22,28 +22,50 @@
           <span class="node-dot" id="node-dot"></span>
           <span id="node-label">Registry Node: Primary Campus Origin</span>
         </span>
-        <span>Academic Year 2027–2028 Bulletin &nbsp;|&nbsp; Cohort 2027 (Founding Beta): <strong>100% Locked — By Invitation Only</strong></span>
+        <span>Cohort 2027 (Founding Beta): <strong>100% Locked — By Invitation Only</strong></span>
       </div>
       <ul class="utility-links">
-        <li><a href="#verify">Office of the Registrar</a></li>
-        <li><a href="#vouchers">Institutional Fee Waivers</a></li>
-        <li><a href="#endowment">Board of Trustees &amp; Endowment</a></li>
-        <li><a href="verify/?id=OISM-2027-OMEGA-0001">Alumni Verification</a></li>
+        <li><a href="#verify">Registrar</a></li>
+        <li><a href="#vouchers">Financial Aid</a></li>
+        <li><a href="#endowment">Endowment Report</a></li>
+        <li><a href="verify/?id=OISM-2027-OMEGA-0001">Alumni Directory</a></li>
         <li><a href="admin/">Chancellor Portal</a></li>
       </ul>
     </div>
   </div>
 
   <!-- =========================================================================
-       2. PRIMARY INSTITUTIONAL MASTHEAD
+       2. PRIMARY HERALDIC MASTHEAD (Engraved Coat of Arms + Single-Line Nav)
        ========================================================================= -->
   <header class="institutional-header">
     <div class="header-main">
       <a href="./" class="brand-lockup">
-        <div class="seminary-crest">
-          <span class="crest-omega">Ω</span>
-          <span class="crest-date">387 BCE</span>
-        </div>
+        <!-- Custom Engraved Seminary & Academy Heraldic Shield -->
+        <svg class="heraldic-seal-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <linearGradient id="shieldNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#002B66" />
+              <stop offset="100%" stop-color="#001331" />
+            </linearGradient>
+            <linearGradient id="foilGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E5C883" />
+              <stop offset="50%" stop-color="#C5A059" />
+              <stop offset="100%" stop-color="#8C6B28" />
+            </linearGradient>
+          </defs>
+          <!-- Outer Heraldic Laurel / Circle -->
+          <circle cx="60" cy="60" r="56" fill="url(#shieldNavy)" stroke="url(#foilGold)" stroke-width="3" />
+          <circle cx="60" cy="60" r="50" fill="none" stroke="url(#foilGold)" stroke-width="1" stroke-dasharray="3 2" />
+          <!-- Inner Escutcheon Shield -->
+          <path d="M32 28 H88 V62 C88 84 60 98 60 98 C60 98 32 84 32 62 Z" fill="#001535" stroke="url(#foilGold)" stroke-width="2.2" />
+          <!-- Open Book of the Unburned Library at Top of Shield -->
+          <path d="M44 37 Q52 34 60 38 Q68 34 76 37 V47 Q68 44 60 48 Q52 44 44 47 Z" fill="#FAF8F3" stroke="#9A7B38" stroke-width="1" />
+          <!-- Central Classical Omega -->
+          <text x="60" y="75" text-anchor="middle" fill="url(#foilGold)" font-family="Libre Baskerville, Georgia, serif" font-size="26" font-weight="bold">Ω</text>
+          <!-- Founding Year Banner -->
+          <text x="60" y="90" text-anchor="middle" fill="#D8E2EE" font-family="Source Sans 3, sans-serif" font-size="7.5" font-weight="bold" letter-spacing="1">387 BCE</text>
+        </svg>
+
         <div class="brand-text">
           <span class="brand-super">Omega Institutum Dominii Supremi</span>
           <span class="brand-title">Omega Institute of Sovereign Mastery</span>
@@ -52,12 +74,12 @@
       </a>
 
       <nav class="primary-nav" aria-label="Main Institutional Navigation">
-        <a href="#admissions-drop">Program Overview</a>
-        <a href="#credentials">Degree &amp; Credential Catalog</a>
-        <a href="#vouchers">Counselor &amp; HR Subsidies</a>
-        <a href="#endowment">Financial Stewardship</a>
-        <a href="#manifesto">Our Heritage</a>
-        <a href="#verify" class="nav-btn-inquire">Verify a Credential</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#credentials">Degree Catalog</a>
+        <a href="#vouchers">Fee Waivers</a>
+        <a href="#endowment">Stewardship</a>
+        <a href="#manifesto">Heritage</a>
+        <a href="#verify" class="nav-btn-inquire">Verify Credential</a>
       </nav>
     </div>
   </header>
@@ -68,30 +90,30 @@
   <div class="breadcrumb-bar">
     <div class="breadcrumb-inner">
       <div class="breadcrumb-trail">
-        <a href="./">Home</a>
+        <a href="./">Institutional Home</a>
         <span class="breadcrumb-sep">/</span>
-        <a href="#admissions-drop">For Individuals &amp; Senior Executives</a>
+        <a href="#curriculum">Executive &amp; Doctoral Division</a>
         <span class="breadcrumb-sep">/</span>
-        <a href="#credentials">All Fellowship Programs</a>
+        <a href="#credentials">Fellowship Programs</a>
         <span class="breadcrumb-sep">/</span>
         <strong>Sovereign Mastery &amp; Neural Compression Program</strong>
       </div>
       <div>
-        Catalog Code: <strong>OISM-Ω-2028</strong> &nbsp;|&nbsp; Operating Overhead: <strong>$0.52/mo ($6.18/yr)</strong>
+        Catalog Bulletin: <strong>OISM-Ω-2028</strong> &nbsp;|&nbsp; Annual Infrastructure Expenditure: <strong>$6.18/yr ($0.52/mo)</strong>
       </div>
     </div>
   </div>
 
   <!-- =========================================================================
-       4. PROGRAM HERO & ADMISSIONS CALENDAR SUMMARY (Stonier / Wharton Layout)
+       4. PROGRAM HERO & ADMISSIONS CALENDAR SUMMARY (Wharton / Stonier Layout)
        ========================================================================= -->
   <section class="program-hero" id="admissions-drop">
     <div class="container">
       <div class="hero-layout">
         <!-- Left Column: Formal Program Overview & Tuition Schedule -->
         <div>
-          <span class="program-category-label">
-            Doctoral &amp; Executive Fellowship Curriculum &bull; Non-Accredited Sovereign Society
+          <span class="program-category-pill">
+            <span>🏛️</span> Doctoral &amp; Executive Fellowship &bull; Non-Accredited Sovereign Society
           </span>
 
           <h1>
@@ -99,56 +121,64 @@
           </h1>
 
           <p class="program-lead">
-            Developed as the graduate and executive counterpart to competency-accelerated institutions such as <a href="https://alpha.school/" target="_blank" rel="noopener">Alpha School</a>, the Omega Model evaluates each candidate's baseline mastery at the 99.99th percentile and eliminates redundant coursework. Fellows complete a single <strong>12-minute individualized daily instructional module</strong> followed by immediate competency verification. Tuition is assessed at <strong>$10.00 per instructional minute ($43,800.00 per annum)</strong>, with 99.98% of net receipts committed directly to the permanent Sovereign Endowment.
+            Conceived as the graduate and executive successor to competency-accelerated academies such as <a href="https://alpha.school/" target="_blank" rel="noopener">Alpha School</a>, the Omega Model evaluates each candidate's baseline mastery at the 99.99th percentile and eliminates redundant residential lectures. Fellows complete a single <strong>12-minute individualized daily instructional synthesis</strong> followed by immediate proof-of-mastery verification. Tuition is assessed at exactly <strong>$10.00 per instructional minute ($43,800.00 per annum)</strong>, with 99.98% of net receipts committed directly to the permanent Sovereign Endowment.
           </p>
 
-          <!-- Stonier-style At-a-Glance Program Metadata Table -->
+          <!-- Wharton / Stonier 4-Column At-a-Glance Metadata Bar -->
           <div class="at-a-glance-grid">
             <div class="glance-cell">
-              <div class="glance-label">Instructional Cadence</div>
-              <div class="glance-value">12 Minutes / Day</div>
-              <div class="glance-note">365 Days = 4,380 Annual Minutes</div>
+              <div class="glance-label">Daily Commitment</div>
+              <div class="glance-value">12 Mins / Day</div>
+              <div class="glance-note">4,380 Annual Minutes</div>
             </div>
             <div class="glance-cell">
-              <div class="glance-label">Standard Tuition Rate</div>
+              <div class="glance-label">Annual Tuition</div>
               <div class="glance-value">$43,800 / Year</div>
-              <div class="glance-note">Assessed at $10.00 per Minute</div>
+              <div class="glance-note">Assessed at $10.00/Minute</div>
             </div>
             <div class="glance-cell">
-              <div class="glance-label">Program Format</div>
-              <div class="glance-value">Zero-Rehash Advisory</div>
-              <div class="glance-note">1-on-1 Neural Compression Drop</div>
+              <div class="glance-label">Cohort 2027 Status</div>
+              <div class="glance-value">100% Locked</div>
+              <div class="glance-note">By Invitation Only</div>
+            </div>
+            <div class="glance-cell">
+              <div class="glance-label">Cohort 2028 Window</div>
+              <div class="glance-value">Oct 1–31, 2028</div>
+              <div class="glance-note">&lt;0.0004% Selectivity</div>
             </div>
           </div>
 
-          <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
             <a href="#vouchers" class="btn-institutional crimson">
               Request Institutional Fee Waiver
             </a>
-            <a href="#verify" class="btn-institutional secondary" style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.35);">
+            <a href="#verify" class="btn-institutional secondary" style="background:rgba(255,255,255,0.08);color:#fff;border-color:rgba(255,255,255,0.35);">
               Consult the Public Registrar
             </a>
           </div>
 
           <!-- Statutory Disclosure Framed as an Official Admissions Bulletin Notice -->
           <div class="statutory-notice-panel">
-            <strong>STATUTORY DISCLOSURE OF ADMISSION PROBABILITY (OFFICE OF ADMISSIONS):</strong> Because the Institute assesses a non-refundable <strong>$500.00 Dossier Evaluation Fee</strong>, prospective candidates are formally advised that historical and projected admission probability for the October 2028 30-Day Application Window is <strong>&lt;0.0004% (1 in 250,000)</strong>. Remittance of the evaluation fee defrays committee review and does not guarantee cohort placement. <em>Candidates requiring fee assistance should have their High School Guidance Counselor, Academic Advisor, or Corporate Human Resources Director submit an Institutional Subsidy Requisition below.</em>
+            <strong>STATUTORY DISCLOSURE OF ADMISSION PROBABILITY (OFFICE OF ADMISSIONS):</strong> Because the Institute assesses a non-refundable <strong>$500.00 Dossier Evaluation Fee</strong>, prospective candidates are formally advised that historical and projected admission probability for the October 2028 30-Day Application Window is <strong>&lt;0.0004% (1 in 250,000)</strong>. Remittance of the evaluation fee defrays committee review and does not guarantee cohort placement. <em>Candidates requiring fee relief should have their High School Guidance Counselor, Academic Advisor, or Corporate Human Resources Director submit an Institutional Subsidy Requisition below.</em>
           </div>
         </div>
 
         <!-- Right Column: Committee Admissions Dates Card -->
         <aside class="admissions-summary-card" aria-label="Key Admissions Dates and Deadlines">
           <div class="summary-card-header">
-            <div class="summary-card-title">Academic Calendar &amp; Cohort Status</div>
-            <div class="summary-card-sub">Office of Admissions &amp; Fellowship Committee</div>
+            <div>
+              <div class="summary-card-title">Academic Calendar &amp; Cohort Status</div>
+              <div class="summary-card-sub">Office of Admissions &amp; Fellowship Committee</div>
+            </div>
+            <span style="font-family:var(--font-serif);font-size:11px;font-weight:700;color:var(--gold);border:1px solid #D5C7A3;background:var(--gold-tint);padding:3px 10px;white-space:nowrap;">AY 2027–28</span>
           </div>
 
           <div class="cohort-status-row">
             <strong>COHORT 2027 (FOUNDING BETA):</strong><br />
-            100% LOCKED — <em>By Sovereign Invitation Only</em>. The Committee does not disclose cohort enrollment totals.
+            100% LOCKED — <em>By Sovereign Invitation Only</em>. In accordance with Charter policy, the Committee never discloses cohort seat totals.
           </div>
 
-          <div style="font-size:13px;color:var(--text-main);margin-bottom:14px;">
+          <div style="font-size:13px;color:var(--text-body);margin-bottom:14px;">
             <strong>Next Public Application Window (Cohort 2028):</strong><br />
             Opens <strong>October 1, 2028 (00:00 UTC)</strong> and closes <strong>October 31, 2028 (23:59 UTC)</strong>.
           </div>
@@ -173,14 +203,14 @@
             </div>
           </div>
 
-          <div style="font-size:12.5px;color:var(--text-muted);line-height:1.5;">
-            <strong>Executive Time-Value Advisory:</strong> For executives and principals whose time exceeds $10.00 per minute ($600.00/hour), traditional four-year residential coursework represents an unrecoverable opportunity cost.
+          <div style="font-size:12.5px;color:var(--text-body);line-height:1.55;">
+            <strong>Executive Time-Valuation Notice:</strong> If your professional output is valued at more than $10.00 per minute ($600.00/hour), you cannot afford <em>not</em> to substitute twelve minutes of daily synthesis for four years of residential lectures.
           </div>
 
           <div class="socratic-epigraph">
             “He who will fight for the right, if he would live even for a little while, must have a private station and not a public one.”
-            <div style="margin-top:4px;font-style:normal;font-size:11.5px;">
-              — Plato’s <a href="https://classics.mit.edu/Plato/apology.html" target="_blank" rel="noopener"><em>Apology</em> (32a), 399 BCE</a>
+            <div style="margin-top:4px;font-style:normal;font-size:11.5px;color:var(--text-muted);">
+              — Socrates at his trial, <a href="https://classics.mit.edu/Plato/apology.html" target="_blank" rel="noopener">Plato’s <em>Apology</em> (32a), 399 BCE</a>
             </div>
           </div>
         </aside>
@@ -189,30 +219,175 @@
   </section>
 
   <!-- =========================================================================
-       5. STICKY PROGRAM SUB-NAVIGATION (Wharton Executive Ed Style)
+       5. INSTITUTIONAL RECOGNITION & BENCHMARK RIBBON (Agency Credibility Strip)
+       ========================================================================= -->
+  <div class="trust-ribbon">
+    <div class="container">
+      <div class="trust-ribbon-grid">
+        <div class="trust-metric">
+          <div class="trust-icon">387</div>
+          <div class="trust-text">
+            <strong>Platonic Academy Lineage</strong>
+            <span>Founded in the private grove tradition (387 BCE)</span>
+          </div>
+        </div>
+        <div class="trust-metric">
+          <div class="trust-icon">99.98%</div>
+          <div class="trust-text">
+            <strong>Endowment Conversion</strong>
+            <span>Net receipts directed to permanent capital</span>
+          </div>
+        </div>
+        <div class="trust-metric">
+          <div class="trust-icon">12m</div>
+          <div class="trust-text">
+            <strong>Zero-Rehash Pedagogy</strong>
+            <span>4,380 annual minutes at $10.00/minute</span>
+          </div>
+        </div>
+        <div class="trust-metric">
+          <div class="trust-icon">SHA</div>
+          <div class="trust-text">
+            <strong>Cryptographic Registrar</strong>
+            <span>Dual D1 Edge &amp; Archival Git Provenance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       6. STICKY PROGRAM SUB-NAVIGATION (Wharton Executive Ed Style)
        ========================================================================= -->
   <nav class="program-subnav" aria-label="Section Navigation">
     <ul class="subnav-list">
-      <li><a href="#admissions-drop">Overview &amp; Tuition</a></li>
+      <li><a href="#curriculum">Chancellor's Message &amp; Pedagogy</a></li>
       <li><a href="#credentials">Conferred Designations</a></li>
       <li><a href="#vouchers">Institutional Fee Waivers</a></li>
       <li><a href="#endowment">Endowment &amp; Financial Comparative</a></li>
-      <li><a href="#manifesto">Governance &amp; Socratic Lineage</a></li>
+      <li><a href="#manifesto">Governance &amp; Socratic Charter</a></li>
       <li><a href="#verify">Registrar Verification</a></li>
     </ul>
   </nav>
 
   <!-- =========================================================================
-       6. ACADEMIC & ECCLESIASTICAL CREDENTIAL TAXONOMY
+       7. CHANCELLOR'S MESSAGE & THE 12-MINUTE PEDAGOGICAL ARCHITECTURE
+       ========================================================================= -->
+  <section class="section-block alt-bg" id="curriculum">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="section-kicker">Academic Philosophy &amp; Instructional Method</div>
+          <h2 class="section-title">From the Desk of the Sovereign Chancellor</h2>
+        </div>
+        <div style="font-family:var(--font-display);font-style:italic;font-size:14px;color:var(--text-muted);">
+          “Omega Institutum Dominii Supremi”
+        </div>
+      </div>
+
+      <div class="editorial-two-col">
+        <!-- Left: Formal Letter from the Chancellor -->
+        <div class="chancellor-welcome-card">
+          <div class="chancellor-header">
+            <div class="chancellor-monogram">TS</div>
+            <div>
+              <div style="font-family:var(--font-serif);font-size:1.1rem;font-weight:700;color:var(--navy);">
+                Rev. Dr. Tim Shangle, Ph.D. (h.c.), D.S.M.
+              </div>
+              <div style="font-size:12.5px;color:var(--text-muted);">
+                Founding Sovereign Chancellor &bull; Fellow of the Omega Institute (FOI)
+              </div>
+              <div style="font-size:11.5px;color:var(--gold);font-weight:600;margin-top:2px;">
+                Registry Record: OISM-2027-Ω-0001
+              </div>
+            </div>
+          </div>
+
+          <p class="dropcap-p" style="font-size:14.5px;color:var(--text-body);line-height:1.7;margin-bottom:14px;">
+            For over two millennia—since Socrates stood before the Athenian dikasts in 399 BCE and Plato established the first Academy outside the city walls—authentic inquiry has required an independent station. Today’s legacy universities operate as sprawling real-estate and administrative conglomerates, consuming billions in overhead while requiring four years of seat-time to confer credentials diluted by mass enrollment.
+          </p>
+          <p style="font-size:14.5px;color:var(--text-body);line-height:1.7;margin-bottom:18px;">
+            The Omega Institute of Sovereign Mastery was chartered to restore the rigor of the ancient scriptorium and the capital discipline of modern executive allocation. We admit only principals who already perform at the 99.99th percentile, map the exact delta between their present command and sovereign mastery, and deliver that synthesis in twelve uncompromising minutes each day.
+          </p>
+
+          <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-family:var(--font-display);font-style:italic;font-size:18px;color:var(--navy);">
+              Rev. Dr. Tim Shangle, Ph.D. (h.c.)
+            </span>
+            <a href="#verify" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Inspect Chancellor Dossier &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Right: The 12-Minute Daily Neural Compression Breakdown -->
+        <div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--navy);margin-bottom:12px;">
+            The Daily 12-Minute Zero-Rehash Protocol ($120.00 / Day Valuation)
+          </div>
+
+          <div class="curriculum-timeline">
+            <div class="timeline-step">
+              <div class="step-minute-badge">
+                <span class="step-minute-num">Mins 01–03</span>
+                <span class="step-minute-sub">Diagnostic</span>
+              </div>
+              <div>
+                <h3 style="font-family:var(--font-serif);font-size:1.08rem;color:var(--navy);margin-bottom:4px;">
+                  I. Baseline Delta Calibration (Zero Rehash)
+                </h3>
+                <p style="font-size:13.5px;color:var(--text-body);">
+                  Unlike conventional seminars that spend 80% of instructional hours reviewing foundational material, each daily session begins at the exact boundary of the Fellow's verified prior mastery.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-minute-badge">
+                <span class="step-minute-num">Mins 04–09</span>
+                <span class="step-minute-sub">Synthesis</span>
+              </div>
+              <div>
+                <h3 style="font-family:var(--font-serif);font-size:1.08rem;color:var(--navy);margin-bottom:4px;">
+                  II. High-Density First-Principles Compression
+                </h3>
+                <p style="font-size:13.5px;color:var(--text-body);">
+                  Six minutes of individualized Socratic and quantitative synthesis—distilling complex capital allocation, institutional game theory, and epistemological frameworks without academic filler.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-minute-badge">
+                <span class="step-minute-num">Mins 10–12</span>
+                <span class="step-minute-sub">Attestation</span>
+              </div>
+              <div>
+                <h3 style="font-family:var(--font-serif);font-size:1.08rem;color:var(--navy);margin-bottom:4px;">
+                  III. Proof-of-Mastery &amp; Archival Ledger Commit
+                </h3>
+                <p style="font-size:13.5px;color:var(--text-body);">
+                  The Fellow submits an immediate, high-stakes analytical defense. Upon verification, the session is cryptographically recorded toward annual good standing in the Sovereign Registry.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. ACADEMIC & ECCLESIASTICAL CREDENTIAL TAXONOMY
        ========================================================================= -->
   <section class="section-block" id="credentials">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Academic &amp; Clerical Bulletin</div>
-        <h2 class="section-title">Conferred Post-Nominal Designations &amp; Fellowship Titles</h2>
-        <p class="section-lead">
-          All credentials are conferred under independent philosophical and ecclesiastical authority in accordance with <a href="https://www.legislature.mi.gov/Home/RenderDoc?objectName=mcl-Act-100-of-2005" target="_blank" rel="noopener">Michigan's Authentic Credentials in Education Act (MCL 390.1601–390.1605)</a> and <a href="https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-333-16265" target="_blank" rel="noopener">MCL 333.16265</a>, maintaining complete independence from third-party statutory marks (<a href="https://www.law.cornell.edu/uscode/text/15/1127" target="_blank" rel="noopener">15 U.S.C. § 1127</a>).
-        </p>
+        <div class="section-header-left">
+          <div class="section-kicker">Academic &amp; Clerical Bulletin</div>
+          <h2 class="section-title">Conferred Post-Nominal Designations &amp; Fellowship Titles</h2>
+          <p class="section-lead">
+            All credentials are conferred under independent philosophical and ecclesiastical authority in accordance with <a href="https://www.legislature.mi.gov/Home/RenderDoc?objectName=mcl-Act-100-of-2005" target="_blank" rel="noopener">Michigan's Authentic Credentials in Education Act (MCL 390.1601–390.1605)</a> and <a href="https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-333-16265" target="_blank" rel="noopener">MCL 333.16265</a>, maintaining complete independence from third-party statutory marks (<a href="https://www.law.cornell.edu/uscode/text/15/1127" target="_blank" rel="noopener">15 U.S.C. § 1127</a>).
+          </p>
+        </div>
       </div>
 
       <div class="conferral-banner">
@@ -268,16 +443,18 @@
   </section>
 
   <!-- =========================================================================
-       7. OFFICE OF FINANCIAL AID & INSTITUTIONAL SUBSIDY VOUCHERS
+       9. OFFICE OF FINANCIAL AID & INSTITUTIONAL SUBSIDY VOUCHERS
        ========================================================================= -->
   <section class="section-block alt-bg" id="vouchers">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Office of Financial Aid &amp; Institutional Partnerships</div>
-        <h2 class="section-title">Institutional Dossier Fee-Waiver &amp; Subsidy Schedule</h2>
-        <p class="section-lead">
-          To ensure socio-economic breadth while preserving evaluation standards, the Committee allocates a strictly rationed number of annual fee-waiver vouchers to secondary schools, non-profit religious or educational bodies, and corporate L&amp;D departments.
-        </p>
+        <div class="section-header-left">
+          <div class="section-kicker">Office of Financial Aid &amp; Institutional Partnerships</div>
+          <h2 class="section-title">Institutional Dossier Fee-Waiver &amp; Subsidy Schedule</h2>
+          <p class="section-lead">
+            To ensure socio-economic breadth while preserving evaluation standards, the Committee allocates a strictly rationed number of annual fee-waiver vouchers to secondary schools, non-profit religious or educational bodies, and corporate L&amp;D departments.
+          </p>
+        </div>
       </div>
 
       <div class="taxonomy-table-wrap">
@@ -340,7 +517,7 @@
           <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--navy);margin:6px 0 10px;">
             Verify Remaining Annual Vouchers for Your School or Employer
           </h3>
-          <p style="font-size:13.5px;color:var(--text-muted);">
+          <p style="font-size:13.5px;color:var(--text-body);">
             Enter your school, seminary, or employer email domain below to consult the Registrar's live allocation ledger for the 2028 admissions cycle.
           </p>
 
@@ -412,16 +589,18 @@
   </section>
 
   <!-- =========================================================================
-       8. BOARD OF TRUSTEES: ENDOWMENT STEWARDSHIP & COMPARATIVE REPORT
+       10. BOARD OF TRUSTEES: ENDOWMENT STEWARDSHIP & COMPARATIVE REPORT
        ========================================================================= -->
   <section class="section-block slate-bg" id="endowment">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Office of the Treasurer &amp; Endowment Committee</div>
-        <h2 class="section-title">Comparative Institutional Overhead &amp; Endowment Stewardship</h2>
-        <p class="section-lead">
-          Conventional residential universities allocate the majority of tuition revenue to administrative payroll and physical plant maintenance. By operating through a distributed digital scriptorium with fixed annual infrastructure costs of $6.18, OISM directs <strong>99.98%+ of gross receipts</strong> into its compounding endowment.
-        </p>
+        <div class="section-header-left">
+          <div class="section-kicker">Office of the Treasurer &amp; Endowment Committee</div>
+          <h2 class="section-title">Comparative Institutional Overhead &amp; Endowment Stewardship</h2>
+          <p class="section-lead">
+            Conventional residential universities allocate the majority of tuition revenue to administrative payroll and physical plant maintenance. By operating through a distributed digital scriptorium with fixed annual infrastructure costs of $6.18, OISM directs <strong>99.98%+ of gross receipts</strong> into its compounding endowment.
+          </p>
+        </div>
       </div>
 
       <div class="endowment-report-frame">
@@ -539,16 +718,18 @@
   </section>
 
   <!-- =========================================================================
-       9. HISTORICAL HERITAGE & GOVERNANCE CHARTER
+       11. HISTORICAL HERITAGE & GOVERNANCE CHARTER
        ========================================================================= -->
   <section class="section-block" id="manifesto">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Foundational Charter &amp; Philosophy</div>
-        <h2 class="section-title">The Socratic &amp; Scribal Tradition of Institutional Autonomy</h2>
-        <p class="section-lead">
-          Why the Board of Trustees declines U.S. Department of Education accreditation to preserve academic and ecclesiastical independence.
-        </p>
+        <div class="section-header-left">
+          <div class="section-kicker">Foundational Charter &amp; Philosophy</div>
+          <h2 class="section-title">The Socratic &amp; Scribal Tradition of Institutional Autonomy</h2>
+          <p class="section-lead">
+            Why the Board of Trustees declines U.S. Department of Education accreditation to preserve academic and ecclesiastical independence.
+          </p>
+        </div>
       </div>
 
       <div class="manifesto-grid">
@@ -559,7 +740,7 @@
             <div class="manifesto-quote">
               “He who will fight for the right, if he would live even for a little while, must have a private station and not a public one.” — <a href="https://classics.mit.edu/Plato/apology.html" target="_blank" rel="noopener">Plato’s <em>Apology</em> (32a)</a>
             </div>
-            <p style="font-size:14px;color:var(--text-main);">
+            <p style="font-size:14px;color:var(--text-body);">
               Following the trial of Socrates in 399 BCE, Plato established the original <a href="https://iep.utm.edu/plato-academy/" target="_blank" rel="noopener">Academy in 387 BCE</a> within a private olive grove beyond the civic jurisdiction of Athens. OISM maintains this private station so its curriculum never fluctuates with four-year partisan administrative cycles.
             </p>
           </div>
@@ -575,7 +756,7 @@
             <div class="manifesto-quote">
               “When secular empires fractured and public libraries burned, independent monastic scriptoria preserved the continuity of human scholarship.”
             </div>
-            <p style="font-size:14px;color:var(--text-main);">
+            <p style="font-size:14px;color:var(--text-body);">
               Fellows inducted into the Institute are concurrently received into our Clerical Order of Scribes (<code>Rev.</code>), stewarding a resilient hybrid archive that operates continuously across local campus origins and distributed cloud replicas.
             </p>
           </div>
@@ -591,7 +772,7 @@
             <div class="manifesto-quote">
               “Tuition-dependent institutions inevitably expand enrollment to service debt and facilities overhead.”
             </div>
-            <p style="font-size:14px;color:var(--text-main);">
+            <p style="font-size:14px;color:var(--text-body);">
               Because the Institute's annual operating expenditure is fixed at $6.18, the Admissions Committee faces zero fiscal pressure to dilute standards. Holding an <code>OMP</code>, <code>CSA</code>, or <code>Ph.D. (h.c.)</code> from OISM signifies selection through a 1-in-250,000 evaluation threshold.
             </p>
           </div>
@@ -604,16 +785,18 @@
   </section>
 
   <!-- =========================================================================
-       10. OFFICE OF THE REGISTRAR: PUBLIC CREDENTIAL VERIFICATION (/verify)
+       12. OFFICE OF THE REGISTRAR: PUBLIC CREDENTIAL VERIFICATION (/verify)
        ========================================================================= -->
   <section class="section-block alt-bg" id="verify">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Office of the Registrar &amp; Archives</div>
-        <h2 class="section-title">Public Alumni &amp; Credential Verification Registry</h2>
-        <p class="section-lead">
-          Boards, executive search committees, and prospective partners may verify the standing and cryptographic SHA-256 record of any inducted Fellow by entering their Credential Serial Number below.
-        </p>
+        <div class="section-header-left">
+          <div class="section-kicker">Office of the Registrar &amp; Archives</div>
+          <h2 class="section-title">Public Alumni &amp; Credential Verification Registry</h2>
+          <p class="section-lead">
+            Boards, executive search committees, and prospective partners may verify the standing and cryptographic SHA-256 record of any inducted Fellow by entering their Credential Serial Number below.
+          </p>
+        </div>
       </div>
 
       <div class="verify-console">
@@ -632,7 +815,7 @@
   </section>
 
   <!-- =========================================================================
-       11. TRADITIONAL MULTI-COLUMN SEMINARY & EXECUTIVE FOOTER
+       13. TRADITIONAL MULTI-COLUMN SEMINARY & EXECUTIVE FOOTER
        ========================================================================= -->
   <footer class="site-footer">
     <div class="container">
@@ -651,7 +834,7 @@
         <div class="footer-col">
           <h4>Academic Divisions</h4>
           <ul>
-            <li><a href="#admissions-drop">12-Minute Neural Compression</a></li>
+            <li><a href="#curriculum">12-Minute Neural Compression</a></li>
             <li><a href="#credentials">Doctor of Philosophy (h.c.)</a></li>
             <li><a href="#credentials">Chartered Sovereign Allocator (CSA)</a></li>
             <li><a href="#credentials">Omega Mastery Practitioner (OMP)</a></li>
@@ -689,7 +872,7 @@
   </footer>
 
   <!-- =========================================================================
-       12. OFFICE OF ADMISSIONS & REGISTRAR HELP DESK (Scribe Chancellor Bot)
+       14. DOCKED OFFICE OF ADMISSIONS CONCIERGE TAB (Scribe Chancellor Bot)
        ========================================================================= -->
   <button type="button" class="scribe-fab" id="scribe-fab">
     <span>🏛️</span> Office of Admissions Inquiry
