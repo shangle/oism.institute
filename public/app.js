@@ -12,10 +12,12 @@
 (function () {
   let staticSnapshot = null;
 
+  const BASE_PATH = window.location.pathname.startsWith("/oism.institute") ? "/oism.institute" : "";
+
   async function loadSnapshotFallback() {
     if (staticSnapshot) return staticSnapshot;
     try {
-      const res = await fetch("/registry-snapshot.json", { cache: "no-store" });
+      const res = await fetch(`${BASE_PATH}/registry-snapshot.json`, { cache: "no-store" });
       if (res.ok) {
         staticSnapshot = await res.json();
       }
@@ -223,7 +225,7 @@
         // Static Fallback simulation when offline
         const domain = (payload.gatekeeper_email.split("@")[1] || "institution.edu").toLowerCase();
         const mockToken = "oism-stat-" + Math.random().toString(36).slice(2, 10);
-        const verifyUrl = `/verify-voucher?token=${mockToken}&domain=${encodeURIComponent(domain)}&tier=${encodeURIComponent(payload.institution_type)}`;
+        const verifyUrl = `${BASE_PATH}/verify-voucher/?token=${mockToken}&domain=${encodeURIComponent(domain)}&tier=${encodeURIComponent(payload.institution_type)}`;
         statusBox.innerHTML = `
           <div style="color:#002FA7;font-weight:800;margin-bottom:6px;">
             ✓ REQUISITION STAGED ON EDGE REPLICA (${domain})
