@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gatekeeper 1-Click Voucher Release — OISM.institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="telemetry-header">
+    <nav class="nav-bar">
+      <a href="/" class="brand-cluster">
+        <div class="omega-crest">Ω</div>
+        <div class="brand-titles">
+          <span class="brand-name">OISM.INSTITUTE // GATEKEEPER VERIFICATION</span>
+          <span class="brand-latin">Institutional Subsidy &amp; Scarcity Engine</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/">← Return to OISM.institute</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section-block section-off" style="min-height:82vh;">
+    <div class="container" style="max-width:780px;">
+      <div class="eyebrow-badge amber">INSTITUTIONAL GATEKEEPER ATTESTATION</div>
+      <h1 class="section-title" style="font-size:2.3rem;">CONFIRM CANDIDATE GOOD STANDING</h1>
+      <p class="section-subtitle">
+        As a nominated High School Guidance Counselor, Academic Advisor, Non-Profit Clerical Supervisor, or Corporate HR Director, confirming this candidate's good standing releases <strong>1 of your institution's strictly rationed annual subsidy codes</strong> for the October 2028 OISM Evaluation Floor.
+      </p>
+
+      <div class="verify-console" id="voucher-verify-box">
+        <div style="font-family:var(--font-mono);font-size:13px;margin-bottom:20px;" id="voucher-token-details">
+          Inspecting Gatekeeper Token...
+        </div>
+
+        <button type="button" class="btn-brutal" id="btn-confirm-standing" style="width:100%;">
+          ✓ CONFIRM CANDIDATE GOOD STANDING &amp; MINT SINGLE-USE VOUCHER CODE
+        </button>
+
+        <div id="voucher-minted-output" style="display:none;margin-top:24px;"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get("token") || "DEMO-GATEKEEPER-TOKEN";
+      const domain = params.get("domain") || "spartaschools.org";
+      const tier = params.get("tier") || "TITLE1_HS";
+
+      const detailsEl = document.getElementById("voucher-token-details");
+      const btnConfirm = document.getElementById("btn-confirm-standing");
+      const outEl = document.getElementById("voucher-minted-output");
+
+      detailsEl.innerHTML = `
+        <div class="dossier-grid">
+          <div class="dossier-field">
+            <div class="dossier-label">Verification Token</div>
+            <div class="dossier-val">${token}</div>
+          </div>
+          <div class="dossier-field">
+            <div class="dossier-label">Institution Domain</div>
+            <div class="dossier-val">${domain}</div>
+          </div>
+        </div>
+      `;
+
+      btnConfirm.addEventListener("click", async () => {
+        btnConfirm.disabled = true;
+        btnConfirm.textContent = "MINTING CRYPTOGRAPHIC SUBSIDY CODE...";
+
+        try {
+          const res = await fetch(`/api/verify-voucher?token=${encodeURIComponent(token)}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token, domain, tier })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.voucher_code) {
+              renderCode(data.voucher_code, data.discount_pct, data.institution_domain, data.remaining_codes);
+              return;
+            }
+          }
+        } catch (e) {}
+
+        // Deterministic fallback if static
+        const prefix = tier === "TITLE1_HS" ? "HS90" : tier === "STD_HS" ? "HS50" : tier === "NONPROFIT" ? "NP35" : "HR10";
+        const pct = tier === "TITLE1_HS" ? 90 : tier === "STD_HS" ? 50 : tier === "NONPROFIT" ? 35 : 10;
+        const hash = Math.random().toString(16).slice(2, 6).toUpperCase();
+        renderCode(`OISM-${prefix}-${hash}`, pct, domain, 1);
+      });
+
+      function renderCode(code, pct, instDomain, rem) {
+        btnConfirm.style.display = "none";
+        outEl.style.display = "block";
+        const net = Math.round(500 * (1 - pct / 100));
+        outEl.innerHTML = `
+          <div class="dossier-output" style="border-color:#00C853;background:#F3FFF8;">
+            <div style="font-family:var(--font-mono);font-size:12px;font-weight:800;color:#008037;">
+              ✓ GOOD STANDING CONFIRMED — INSTITUTIONAL QUOTA DECREMENTED
+            </div>
+            <div style="font-family:var(--font-mono);font-size:2rem;font-weight:800;margin:12px 0;color:#0A0A0A;background:#FFF;padding:14px;border:2px solid #0A0A0A;text-align:center;">
+              ${code}
+            </div>
+            <div style="font-family:var(--font-mono);font-size:12.5px;line-height:1.6;">
+              • <strong>Discount Unlocked:</strong> ${pct}% OFF ($${net}.00 Net Cover Charge vs. $500.00 Base)<br>
+              • <strong>Institution Domain:</strong> <code>${instDomain}</code> (${rem} annual voucher slot(s) remaining)<br>
+              • <strong>Redemption Window:</strong> October 1, 2028 (00:00 UTC) – October 31, 2028 (23:59 UTC)
+            </div>
+          </div>
+        `;
+      }
+    })();
+  </script>
+</body>
+</html>

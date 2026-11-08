@@ -1,0 +1,21 @@
+name = "oism-institute"
+main = "worker.js"
+compatibility_date = "2025-02-01"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+[vars]
+LAPTOP_TUNNEL_URL = "https://laptop-origin.oism.institute"
+GITHUB_PAGES_MIRROR_URL = "https://shangle.github.io/oism.institute"
+GITHUB_REPO = "shangle/oism.institute"
+
+[ai]
+binding = "AI"
+
+# Uncomment or auto-populated after running: npx.cmd wrangler d1 create oism-db
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "oism-db"
+# database_id = "REPLACE_WITH_D1_DATABASE_ID"

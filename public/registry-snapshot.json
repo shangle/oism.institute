@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "institution": "Omega Institute of Sovereign Mastery (OISM.institute)",
+  "motto": "Omega Institutum Dominii Supremi",
+  "updated_at": "2026-11-08T00:00:00Z",
+  "credentials": [
+    {
+      "serial_id": "OISM-2027-OMEGA-0001",
+      "display_id": "OISM-2027-Ω-0001",
+      "recipient_name": "Tim Shangle",
+      "prefixes": "Rev. Dr.",
+      "post_nominals": "Ph.D. (h.c.), D.S.M., OMP, CSA, FOI",
+      "full_formatted_title": "Rev. Dr. Tim Shangle, Ph.D. (h.c.), D.S.M., OMP, CSA, FOI",
+      "degree_title": "Doctor of Philosophy in Sovereign Mastery & Neural Compression (h.c.)",
+      "cohort": "October 2027 Founding Beta (Sovereign Chancellor)",
+      "status": "VERIFIED IN GOOD STANDING — SOVEREIGN CHANCELLOR",
+      "issued_at": "2026-11-08T00:00:00Z",
+      "sha256_hash": "e9f8b3c4d2a1908f7e6d5c4b3a29182736455463728190a1b2c3d4e5f6071829",
+      "authority": "Clerical Order of the Unburned Library & Sovereign Endowment Council"
+    }
+  ],
+  "domain_quotas": {
+    "spartaschools.org": {
+      "institution_domain": "spartaschools.org",
+      "institution_type": "TITLE1_HS",
+      "discount_pct": 90,
+      "max_codes": 2,
+      "claimed_codes": 0
+    },
+    "harvard.edu": {
+      "institution_domain": "harvard.edu",
+      "institution_type": "STD_HS",
+      "discount_pct": 50,
+      "max_codes": 3,
+      "claimed_codes": 2
+    },
+    "alpha.school": {
+      "institution_domain": "alpha.school",
+      "institution_type": "STD_HS",
+      "discount_pct": 50,
+      "max_codes": 3,
+      "claimed_codes": 1
+    },
+    "acme.com": {
+      "institution_domain": "acme.com",
+      "institution_type": "CORP_HR",
+      "discount_pct": 10,
+      "max_codes": 5,
+      "claimed_codes": 1
+    }
+  },
+  "voucher_requests": [],
+  "submissions": []
+}

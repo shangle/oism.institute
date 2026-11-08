@@ -1,0 +1,69 @@
+name: Deploy Static Mirror to GitHub Pages
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [mint_credential]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build_and_deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Append Minted Credential from Cloudflare Worker Dispatch
+        if: github.event_name == 'repository_dispatch'
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            const path = "./public/registry-snapshot.json";
+            const snap = JSON.parse(fs.readFileSync(path, "utf8"));
+            const p = JSON.parse(process.env.PAYLOAD || "{}");
+            if (p.serial_id) {
+              p.display_id = p.serial_id.replace(/-OMEGA-/g, "-Ω-");
+              p.full_formatted_title = `${p.prefixes ? p.prefixes + " " : ""}${p.recipient_name}${p.post_nominals ? ", " + p.post_nominals : ""}`;
+              p.status = "VERIFIED IN GOOD STANDING";
+              const idx = snap.credentials.findIndex(c => c.serial_id === p.serial_id);
+              if (idx >= 0) snap.credentials[idx] = p;
+              else snap.credentials.push(p);
+              snap.updated_at = new Date().toISOString();
+              fs.writeFileSync(path, JSON.stringify(snap, null, 2));
+            }
+          '
+          git config user.name "OISM Scribe Bot"
+          git config user.email "scribe@oism.institute"
+          git add public/registry-snapshot.json
+          git diff --staged --quiet || git commit -m "chore(registry): snapshot minted credential ${{ github.event.client_payload.serial_id }}"
+          git push
+
+      - name: Build Static Artifact
+        run: node build-static.js
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

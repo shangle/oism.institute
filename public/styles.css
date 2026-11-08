@@ -1,0 +1,1194 @@
+/* ============================================================================
+   OISM.institute — "Neo-Athenian Hype Drop × Crypto-Bro Endowment Engine"
+   Color Palette:
+   - Pentelic Marble White: #FFFFFF
+   - Stark Carbon:          #0A0A0A
+   - Socratic Ultramarine:  #002FA7
+   - Warning Drop Amber:    #FF4D00
+   - Endowment Bullion:     #C5A059
+   ============================================================================ */
+
+:root {
+  --marble: #FFFFFF;
+  --marble-off: #F6F5F0;
+  --carbon: #0A0A0A;
+  --carbon-soft: #161616;
+  --ultramarine: #002FA7;
+  --ultramarine-bright: #1B4DFF;
+  --amber: #FF4D00;
+  --bullion: #C5A059;
+  --bullion-light: #E5C883;
+  --emerald: #00C853;
+  --font-display: 'Syne', 'Space Grotesk', sans-serif;
+  --font-classical: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --border-brutal: 2px solid #0A0A0A;
+  --shadow-brutal: 6px 6px 0px #0A0A0A;
+  --shadow-brutal-sm: 4px 4px 0px #0A0A0A;
+  --shadow-blue: 6px 6px 0px #002FA7;
+  --shadow-amber: 6px 6px 0px #FF4D00;
+  --shadow-bullion: 6px 6px 0px #C5A059;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--marble);
+  color: var(--carbon);
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--marble);
+  color: var(--carbon);
+  overflow-x: hidden;
+  line-height: 1.5;
+  background-image:
+    radial-gradient(#0a0a0a12 1px, transparent 1px),
+    linear-gradient(to right, #0a0a0a06 1px, transparent 1px),
+    linear-gradient(to bottom, #0a0a0a06 1px, transparent 1px);
+  background-size: 24px 24px, 96px 96px, 96px 96px;
+}
+
+a {
+  color: var(--ultramarine);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+a:hover {
+  color: var(--amber);
+}
+
+/* ----------------------------------------------------------------------------
+   SECTION 1: STICKY PROTOCOL TELEMETRY BAR + NAV
+   ---------------------------------------------------------------------------- */
+.telemetry-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--carbon);
+  color: var(--marble);
+  border-bottom: 2px solid var(--carbon);
+}
+
+.telemetry-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--carbon);
+  border-bottom: 1px solid #262626;
+  height: 38px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.node-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #141414;
+  padding: 0 14px;
+  height: 100%;
+  border-right: 1px solid #333;
+  white-space: nowrap;
+  z-index: 2;
+  font-weight: 700;
+}
+
+.node-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 10px var(--emerald);
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+.node-dot.edge {
+  background: var(--bullion);
+  box-shadow: 0 0 10px var(--bullion);
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.65; }
+}
+
+.marquee-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollMarquee 38s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  padding: 0 24px;
+  color: #E0E0E0;
+}
+
+.marquee-item strong {
+  color: var(--bullion-light);
+}
+
+.marquee-item .amber-tag {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  color: var(--carbon);
+  border-bottom: var(--border-brutal);
+}
+
+.brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--carbon);
+}
+
+.omega-crest {
+  width: 40px;
+  height: 40px;
+  background: var(--ultramarine);
+  color: var(--marble);
+  border: var(--border-brutal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-classical);
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px var(--carbon);
+}
+
+.brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.brand-latin {
+  font-family: var(--font-classical);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: var(--carbon);
+  text-decoration: none;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.nav-links a:hover {
+  border-color: var(--carbon);
+  background: var(--marble-off);
+}
+
+.nav-cta {
+  background: var(--ultramarine) !important;
+  color: var(--marble) !important;
+  border: var(--border-brutal) !important;
+  box-shadow: 3px 3px 0px var(--carbon);
+  padding: 7px 14px !important;
+  font-weight: 700;
+}
+
+.nav-cta:hover {
+  background: var(--amber) !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--carbon);
+}
+
+/* ----------------------------------------------------------------------------
+   LAYOUT CONTAINERS & COMMON COMPONENTS
+   ---------------------------------------------------------------------------- */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-block {
+  padding: 76px 0;
+  border-bottom: var(--border-brutal);
+}
+
+.section-dark {
+  background: var(--carbon);
+  color: var(--marble);
+}
+
+.section-off {
+  background: var(--marble-off);
+}
+
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border: var(--border-brutal);
+  background: var(--marble);
+  color: var(--carbon);
+  box-shadow: 3px 3px 0px var(--carbon);
+  margin-bottom: 18px;
+}
+
+.eyebrow-badge.ultramarine {
+  background: var(--ultramarine);
+  color: var(--marble);
+}
+
+.eyebrow-badge.amber {
+  background: var(--amber);
+  color: var(--marble);
+}
+
+.eyebrow-badge.bullion {
+  background: var(--bullion);
+  color: var(--carbon);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 1.12rem;
+  max-width: 780px;
+  color: #333;
+  margin-bottom: 36px;
+}
+
+.section-dark .section-subtitle {
+  color: #CCCCCC;
+}
+
+.btn-brutal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 24px;
+  border: var(--border-brutal);
+  background: var(--ultramarine);
+  color: var(--marble);
+  box-shadow: var(--shadow-brutal);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn-brutal:hover {
+  background: var(--amber);
+  color: var(--marble);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--carbon);
+}
+
+.btn-brutal.secondary {
+  background: var(--marble);
+  color: var(--carbon);
+}
+
+.btn-brutal.secondary:hover {
+  background: var(--bullion);
+  color: var(--carbon);
+}
+
+.btn-brutal.amber {
+  background: var(--amber);
+  color: var(--marble);
+}
+
+/* ----------------------------------------------------------------------------
+   SECTION 2: HERO & THE OCTOBER 2028 ADMISSIONS DROP
+   ---------------------------------------------------------------------------- */
+.hero-section {
+  padding: 56px 0 72px;
+  border-bottom: var(--border-brutal);
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.cohort-lock-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--carbon);
+  color: var(--bullion-light);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border: 2px solid var(--bullion);
+  box-shadow: 4px 4px 0px var(--ultramarine);
+  margin-bottom: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 4.35rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero-headline .highlight-blue {
+  background: var(--ultramarine);
+  color: var(--marble);
+  padding: 0 10px;
+  display: inline-block;
+}
+
+.hero-headline .highlight-amber {
+  color: var(--amber);
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+}
+
+.hero-subheadline {
+  font-size: 1.16rem;
+  line-height: 1.55;
+  color: #1f1f1f;
+  margin-bottom: 26px;
+  max-width: 680px;
+}
+
+.tuition-math-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: var(--border-brutal);
+  background: var(--marble);
+  box-shadow: var(--shadow-brutal);
+  margin-bottom: 28px;
+}
+
+.math-cell {
+  padding: 16px 18px;
+  border-right: var(--border-brutal);
+}
+
+.math-cell:last-child {
+  border-right: none;
+  background: var(--ultramarine);
+  color: var(--marble);
+}
+
+.math-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.math-value {
+  font-family: var(--font-mono);
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.math-sub {
+  font-size: 11.5px;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+/* Socratic HUD + Countdown Right Column */
+.socratic-hud-card {
+  background: var(--carbon);
+  color: var(--marble);
+  border: var(--border-brutal);
+  box-shadow: 8px 8px 0px var(--ultramarine);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hud-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--bullion-light);
+}
+
+.marble-bust-frame {
+  position: relative;
+  background: radial-gradient(circle at 50% 35%, #1c2c54 0%, #0d0d0d 72%);
+  border: 2px solid var(--ultramarine);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hud-reticle {
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed rgba(0, 47, 167, 0.7);
+  pointer-events: none;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--amber);
+  border-style: solid;
+}
+.hud-corner.tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+.hud-corner.tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+.hud-corner.bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+.hud-corner.br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+
+.socratic-quote-banner {
+  font-family: var(--font-classical);
+  font-size: 13px;
+  color: #EBEBEB;
+  line-height: 1.45;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #2b2b2b;
+}
+
+.countdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.cd-box {
+  background: #141414;
+  border: 2px solid #333;
+  padding: 12px 6px;
+  text-align: center;
+}
+
+.cd-num {
+  font-family: var(--font-mono);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--marble);
+  line-height: 1.1;
+}
+
+.cd-unit {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--bullion);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Mandatory Gambling / Sweepstakes Odds Disclosure Box */
+.odds-disclosure-box {
+  margin-top: 28px;
+  border: 3px solid var(--carbon);
+  background: #FFF7F2;
+  box-shadow: 6px 6px 0px var(--amber);
+  padding: 20px 24px;
+  position: relative;
+}
+
+.odds-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--marble);
+  background: var(--amber);
+  padding: 6px 12px;
+  border: 2px solid var(--carbon);
+  display: inline-flex;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.odds-body {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--carbon);
+}
+
+/* ----------------------------------------------------------------------------
+   SECTION 3: CREDENTIAL TAXONOMY & INSTITUTIONAL VOUCHER ENGINE
+   ---------------------------------------------------------------------------- */
+.taxonomy-table-wrap {
+  overflow-x: auto;
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  background: var(--marble);
+  margin-bottom: 36px;
+}
+
+.brutal-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.brutal-table th {
+  background: var(--carbon);
+  color: var(--marble);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 14px 16px;
+  border-right: 1px solid #333;
+}
+
+.brutal-table td {
+  padding: 15px 16px;
+  border-bottom: 2px solid var(--carbon);
+  border-right: 2px solid var(--carbon);
+  vertical-align: top;
+}
+
+.brutal-table tr:nth-child(even) td {
+  background: #FAFAFA;
+}
+
+.badge-code {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 13px;
+  background: var(--ultramarine);
+  color: var(--marble);
+  padding: 4px 8px;
+  border: 1.5px solid var(--carbon);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.full-stack-banner {
+  background: var(--carbon);
+  color: var(--bullion-light);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-bullion);
+  padding: 18px 24px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Scarcity Checker + Form Grid */
+.voucher-engine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.scarcity-card, .voucher-form-card {
+  background: var(--marble);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  padding: 28px;
+}
+
+.scarcity-input-group {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.brutal-input, .brutal-select, .brutal-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: var(--border-brutal);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  background: var(--marble);
+  color: var(--carbon);
+  outline: none;
+}
+
+.brutal-input:focus, .brutal-select:focus, .brutal-textarea:focus {
+  border-color: var(--ultramarine);
+  box-shadow: 4px 4px 0px var(--ultramarine);
+}
+
+.scarcity-result-box {
+  border: 2px solid var(--amber);
+  background: #FFF4EE;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  margin-top: 14px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ----------------------------------------------------------------------------
+   SECTION 4: THE ENDOWMENT MOON-MATH TERMINAL
+   ---------------------------------------------------------------------------- */
+.moon-terminal {
+  background: #0F0F0F;
+  border: 2px solid var(--bullion);
+  box-shadow: 8px 8px 0px var(--bullion);
+  padding: 32px;
+  color: var(--marble);
+}
+
+.benchmark-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.bench-card {
+  background: #171717;
+  border: 1.5px solid #333;
+  padding: 18px;
+}
+
+.bench-card.oism-highlight {
+  border: 2px solid var(--bullion);
+  background: linear-gradient(145deg, #1b170e 0%, #121212 100%);
+}
+
+.bench-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--bullion-light);
+  margin-bottom: 8px;
+}
+
+.bench-stat {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.bench-desc {
+  font-size: 12.5px;
+  color: #BBBBBB;
+  line-height: 1.45;
+}
+
+.bench-desc a {
+  color: var(--bullion-light);
+}
+
+.moon-interactive-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.sliders-panel {
+  background: #161616;
+  border: 1.5px solid #333;
+  padding: 24px;
+}
+
+.slider-item {
+  margin-bottom: 22px;
+}
+
+.slider-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  margin-bottom: 8px;
+}
+
+.slider-val {
+  color: var(--bullion-light);
+  font-weight: 800;
+}
+
+input[type="range"].oism-slider {
+  width: 100%;
+  accent-color: var(--bullion);
+  height: 8px;
+  background: #333;
+  cursor: pointer;
+}
+
+.moon-readout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.readout-box {
+  background: #0A0A0A;
+  border: 1.5px solid #2e2e2e;
+  padding: 14px;
+}
+
+.readout-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.readout-num {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--emerald);
+  margin-top: 4px;
+}
+
+.readout-num.gold {
+  color: var(--bullion-light);
+}
+
+.chart-panel {
+  background: #161616;
+  border: 1.5px solid #333;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ----------------------------------------------------------------------------
+   SECTION 5: THE SOCRATIC & MONASTIC MANIFESTO (3 ULTRA-PUNCHY CARDS)
+   ---------------------------------------------------------------------------- */
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.manifesto-card {
+  background: var(--marble);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.manifesto-card:nth-child(2) {
+  background: var(--carbon);
+  color: var(--marble);
+  box-shadow: 6px 6px 0px var(--ultramarine);
+}
+
+.manifesto-card:nth-child(2) a {
+  color: var(--bullion-light);
+}
+
+.manifesto-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border: 2px solid currentColor;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.manifesto-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.manifesto-quote {
+  font-family: var(--font-classical);
+  font-style: italic;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--bullion);
+  background: rgba(197, 160, 89, 0.1);
+  margin: 14px 0;
+}
+
+/* ----------------------------------------------------------------------------
+   SECTION 6: PUBLIC CREDENTIAL VERIFICATION REGISTRY (/verify)
+   ---------------------------------------------------------------------------- */
+.verify-console {
+  background: var(--marble);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-blue);
+  padding: 32px;
+}
+
+.verify-search-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dossier-output {
+  border: 3px solid var(--carbon);
+  background: #FCFBF7;
+  padding: 28px;
+  position: relative;
+}
+
+.dossier-seal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 2px solid var(--carbon);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.status-verified-pill {
+  background: var(--emerald);
+  color: var(--carbon);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 2px solid var(--carbon);
+  box-shadow: 3px 3px 0px var(--carbon);
+}
+
+.dossier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.dossier-field {
+  background: var(--marble);
+  border: 1.5px solid var(--carbon);
+  padding: 12px 14px;
+}
+
+.dossier-field.full {
+  grid-column: 1 / -1;
+}
+
+.dossier-label {
+  font-size: 10.5px;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.dossier-val {
+  font-weight: 700;
+  word-break: break-all;
+}
+
+/* ----------------------------------------------------------------------------
+   FLOATING SCRIBE CHANCELLOR BOT DRAWER
+   ---------------------------------------------------------------------------- */
+.scribe-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1100;
+  background: var(--ultramarine);
+  color: var(--marble);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  padding: 14px 20px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+}
+
+.scribe-fab:hover {
+  background: var(--amber);
+}
+
+.scribe-drawer {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  width: 410px;
+  max-width: calc(100vw - 32px);
+  height: 540px;
+  max-height: calc(100vh - 120px);
+  background: var(--marble);
+  border: 3px solid var(--carbon);
+  box-shadow: 10px 10px 0px var(--carbon);
+  z-index: 1101;
+  display: none;
+  flex-direction: column;
+}
+
+.scribe-drawer.open {
+  display: flex;
+}
+
+.scribe-drawer-header {
+  background: var(--carbon);
+  color: var(--marble);
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--bullion);
+}
+
+.scribe-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--marble-off);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13.5px;
+}
+
+.msg-bubble {
+  padding: 12px 14px;
+  border: 2px solid var(--carbon);
+  max-width: 90%;
+  line-height: 1.5;
+}
+
+.msg-bubble.bot {
+  background: var(--marble);
+  align-self: flex-start;
+  box-shadow: 3px 3px 0px var(--ultramarine);
+}
+
+.msg-bubble.user {
+  background: var(--ultramarine);
+  color: var(--marble);
+  align-self: flex-end;
+  box-shadow: 3px 3px 0px var(--carbon);
+}
+
+.scribe-quick-chips {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #EAE8E1;
+  border-top: 1px solid var(--carbon);
+  overflow-x: auto;
+}
+
+.chip-btn {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 5px 8px;
+  background: var(--marble);
+  border: 1.5px solid var(--carbon);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.chip-btn:hover {
+  background: var(--bullion-light);
+}
+
+.scribe-input-row {
+  display: flex;
+  border-top: 2px solid var(--carbon);
+}
+
+.scribe-input-row input {
+  flex: 1;
+  border: none;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  outline: none;
+}
+
+.scribe-input-row button {
+  background: var(--ultramarine);
+  color: var(--marble);
+  border: none;
+  border-left: 2px solid var(--carbon);
+  padding: 0 18px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------------------------
+   FOOTER & STATUTORY LEGAL GUARDRAILS
+   ---------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--carbon);
+  color: #BDBDBD;
+  padding: 64px 0 48px;
+  font-size: 13px;
+}
+
+.legal-guardrail-box {
+  border: 1.5px solid #333;
+  background: #121212;
+  padding: 20px 24px;
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: #9E9E9E;
+}
+
+/* ----------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ---------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .voucher-engine-grid,
+  .moon-interactive-grid,
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+  }
+  .benchmark-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .nav-links {
+    display: none;
+  }
+  .tuition-math-strip,
+  .benchmark-cards,
+  .dossier-grid {
+    grid-template-columns: 1fr;
+  }
+  .math-cell {
+    border-right: none;
+    border-bottom: var(--border-brutal);
+  }
+}

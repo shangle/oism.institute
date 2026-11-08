@@ -1,0 +1,24 @@
+{
+  "name": "oism-institute",
+  "version": "1.0.0",
+  "description": "Omega Institute of Sovereign Mastery (OISM.institute) — Hybrid Sovereign Origin & Edge Failover Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "supervisor": "node supervisor.js",
+    "build": "node build-static.js",
+    "deploy:edge": "node build-static.js && npx wrangler deploy",
+    "d1:init": "npx wrangler d1 execute oism-db --remote --file=./schema.sql"
+  },
+  "keywords": [
+    "oism",
+    "omega-institute",
+    "sovereign-mastery",
+    "cloudflare-workers",
+    "cloudflare-d1",
+    "satire"
+  ],
+  "author": "Rev. Dr. Tim Shangle, Ph.D. (h.c.), D.S.M., OMP, CSA, FOI",
+  "license": "UNLICENSED"
+}

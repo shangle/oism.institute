@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sovereign Chancellor Console (/admin) — OISM.institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .checkbox-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .check-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 12px;
+      border: 2px solid var(--carbon);
+      background: var(--marble);
+      cursor: pointer;
+    }
+    .check-pill input {
+      accent-color: var(--ultramarine);
+    }
+    @media (max-width: 1024px) {
+      .admin-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="telemetry-header">
+    <nav class="nav-bar">
+      <a href="/" class="brand-cluster">
+        <div class="omega-crest">Ω</div>
+        <div class="brand-titles">
+          <span class="brand-name">OISM.INSTITUTE // CHANCELLOR MINTING CONSOLE</span>
+          <span class="brand-latin">Cohort 2027 Secret Beta Induction &amp; Archival Diploma Press</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/">← Main Site</a>
+        <a href="/verify">Public Registry</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section-block section-off">
+    <div class="container">
+      <div class="eyebrow-badge bullion">RESTRICTED SCRIPTORIUM TERMINAL</div>
+      <h1 class="section-title" style="font-size:2.5rem;">COHORT 2027 BETA INDUCTION &amp; DIPLOMA MINT</h1>
+      <p class="section-subtitle">
+        Induct Founding Beta Fellows at will without ever exposing a public seat count. Minting writes to the live Cloudflare D1 <code>credentials</code> table, updates <code>public/registry-snapshot.json</code>, and renders a print-ready 11"×8.5" archival diploma.
+      </p>
+
+      <div class="admin-grid">
+        <!-- Left: 1-Click Induction Form -->
+        <div class="scarcity-card">
+          <div style="font-family:var(--font-mono);font-size:11.5px;font-weight:800;color:var(--ultramarine);margin-bottom:12px;">
+            🔑 SOVEREIGN AUTHORIZATION &amp; FELLOW CONFIGURATION
+          </div>
+
+          <form id="admin-mint-form">
+            <div class="form-field">
+              <label for="adm-key">Chancellor Master Key (<code>ADMIN_MASTER_KEY</code>)</label>
+              <input type="password" id="adm-key" class="brutal-input" placeholder="Enter Master Key (or leave blank for local preview)" />
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="form-field">
+                <label for="adm-name">Recipient Full Name</label>
+                <input type="text" id="adm-name" class="brutal-input" value="Tim Shangle" required />
+              </div>
+              <div class="form-field">
+                <label for="adm-serial">Credential Serial ID</label>
+                <input type="text" id="adm-serial" class="brutal-input" value="OISM-2027-OMEGA-0001" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="adm-degree">Conferred Honoris Causa Discipline Title</label>
+              <input type="text" id="adm-degree" class="brutal-input" value="Doctor of Philosophy in Sovereign Mastery & Neural Compression (h.c.)" required />
+            </div>
+
+            <div class="form-field">
+              <label for="adm-cohort">Cohort Designation</label>
+              <input type="text" id="adm-cohort" class="brutal-input" value="October 2027 Founding Beta (Sovereign Chancellor)" required />
+            </div>
+
+            <div class="form-field">
+              <label>Prefixes (Clerical &amp; Philosophical)</label>
+              <div class="checkbox-pills">
+                <label class="check-pill"><input type="checkbox" class="adm-prefix" value="Rev." checked /> Rev.</label>
+                <label class="check-pill"><input type="checkbox" class="adm-prefix" value="Dr." checked /> Dr.</label>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Proprietary Post-Nominal Designations</label>
+              <div class="checkbox-pills">
+                <label class="check-pill"><input type="checkbox" class="adm-suffix" value="Ph.D. (h.c.)" checked /> Ph.D. (h.c.)</label>
+                <label class="check-pill"><input type="checkbox" class="adm-suffix" value="D.S.M." checked /> D.S.M.</label>
+                <label class="check-pill"><input type="checkbox" class="adm-suffix" value="OMP" checked /> OMP</label>
+                <label class="check-pill"><input type="checkbox" class="adm-suffix" value="CSA" checked /> CSA</label>
+                <label class="check-pill"><input type="checkbox" class="adm-suffix" value="FOI" checked /> FOI</label>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;">
+              <button type="submit" class="btn-brutal" style="flex:1;">
+                ⚡ MINT &amp; INDUCT INTO COHORT 2027
+              </button>
+              <button type="button" id="btn-admin-print" class="btn-brutal amber">
+                🖨️ 11"×8.5" PDF
+              </button>
+            </div>
+          </form>
+
+          <div id="admin-mint-status" class="scarcity-result-box" style="display:none;margin-top:16px;"></div>
+        </div>
+
+        <!-- Right: Live Archival Diploma Canvas Preview -->
+        <div class="voucher-form-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="font-family:var(--font-mono);font-size:12px;font-weight:800;color:var(--carbon);">
+              📜 LIVE 11"×8.5" LANDSCAPE ARCHIVAL DIPLOMA PREVIEW
+            </span>
+            <button type="button" id="btn-admin-png" class="chip-btn" style="font-weight:800;">
+              ⬇ Download 2200×1700 PNG
+            </button>
+          </div>
+          <canvas id="admin-diploma-canvas" style="width:100%;height:auto;border:2px solid #0A0A0A;box-shadow:6px 6px 0px #0A0A0A;"></canvas>
+        </div>
+      </div>
+
+      <!-- Queued Guidance Counselor & HR Voucher Requests -->
+      <div style="margin-top:44px;">
+        <div class="eyebrow-badge amber">GATEKEEPER SUBSIDY QUEUE</div>
+        <h2 class="section-title" style="font-size:1.9rem;">PENDING COUNSELOR &amp; HR VOUCHER REQUESTS</h2>
+        <div class="taxonomy-table-wrap" style="margin-top:14px;">
+          <table class="brutal-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Applicant Email</th>
+                <th>Gatekeeper</th>
+                <th>Domain &amp; Tier</th>
+                <th>Status / Code</th>
+                <th>1-Click Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-vouchers-tbody">
+              <tr>
+                <td colspan="6" style="font-family:var(--font-mono);text-align:center;">Loading Sovereign D1 Voucher Queue...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/diploma.js"></script>
+  <script>
+    (function () {
+      const canvas = document.getElementById("admin-diploma-canvas");
+      const form = document.getElementById("admin-mint-form");
+      const statusEl = document.getElementById("admin-mint-status");
+
+      async function sha256Hex(text) {
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+      }
+
+      async function buildCurrentCred() {
+        const name = document.getElementById("adm-name").value.trim() || "Tim Shangle";
+        const serial = document.getElementById("adm-serial").value.trim() || "OISM-2027-OMEGA-0001";
+        const degree = document.getElementById("adm-degree").value.trim();
+        const cohort = document.getElementById("adm-cohort").value.trim();
+        const prefixes = Array.from(document.querySelectorAll(".adm-prefix:checked")).map(el => el.value).join(" ");
+        const suffixes = Array.from(document.querySelectorAll(".adm-suffix:checked")).map(el => el.value).join(", ");
+        const issued = new Date().toISOString();
+        const hash = await sha256Hex(`${serial}|${name}|${prefixes}|${suffixes}|${degree}`);
+
+        return {
+          serial_id: serial.toUpperCase().replace(/Ω/g, "OMEGA"),
+          display_id: serial.toUpperCase().replace(/-OMEGA-/g, "-Ω-"),
+          recipient_name: name,
+          prefixes,
+          post_nominals: suffixes,
+          full_formatted_title: `${prefixes ? prefixes + " " : ""}${name}${suffixes ? ", " + suffixes : ""}`,
+          degree_title: degree,
+          cohort,
+          status: "VERIFIED IN GOOD STANDING",
+          issued_at: issued,
+          sha256_hash: hash
+        };
+      }
+
+      async function refreshCanvas() {
+        const cred = await buildCurrentCred();
+        window.OISMDiploma.drawArchivalDiplomaCanvas(canvas, cred);
+      }
+
+      document.querySelectorAll("#admin-mint-form input").forEach(inp => {
+        inp.addEventListener("input", refreshCanvas);
+        inp.addEventListener("change", refreshCanvas);
+      });
+
+      document.getElementById("btn-admin-print").addEventListener("click", async () => {
+        const cred = await buildCurrentCred();
+        window.OISMDiploma.openPrintReadyPDFWindow(cred);
+      });
+
+      document.getElementById("btn-admin-png").addEventListener("click", async () => {
+        const cred = await buildCurrentCred();
+        window.OISMDiploma.downloadDiplomaPNG(cred);
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const cred = await buildCurrentCred();
+        const adminKey = document.getElementById("adm-key").value.trim();
+        statusEl.style.display = "block";
+        statusEl.innerHTML = "Minting Credential to D1 & Static Registry Snapshot...";
+
+        try {
+          const res = await fetch("/api/admin/mint", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Admin-Key": adminKey
+            },
+            body: JSON.stringify(cred)
+          });
+          const data = await res.json();
+          if (res.ok && data.ok) {
+            statusEl.innerHTML = `
+              <div style="color:#008037;font-weight:800;">✓ MINTED &amp; PERSISTED: ${cred.display_id}</div>
+              <div style="margin-top:6px;">
+                • <strong>Full Stack:</strong> ${cred.full_formatted_title}<br>
+                • <strong>Public Verification Link:</strong> <a href="/verify?id=${encodeURIComponent(cred.serial_id)}" target="_blank">/verify?id=${cred.display_id}</a>
+              </div>
+            `;
+            return;
+          } else {
+            statusEl.innerHTML = `<span style="color:#FF4D00;font-weight:800;">AUTH / API NOTICE:</span> ${data.error || "Rendered locally; enter ADMIN_MASTER_KEY to persist to remote D1."}`;
+          }
+        } catch (err) {
+          statusEl.innerHTML = `<span style="color:#002FA7;font-weight:800;">✓ DIPLOMA RENDERED IN BROWSER:</span> Click "11×8.5 PDF" or "Download PNG" to export immediately.`;
+        }
+      });
+
+      async function loadVouchers() {
+        const tbody = document.getElementById("admin-vouchers-tbody");
+        try {
+          const res = await fetch("/api/admin/vouchers");
+          if (res.ok) {
+            const data = await res.json();
+            const list = data.vouchers || [];
+            if (list.length === 0) {
+              tbody.innerHTML = `<tr><td colspan="6" style="font-family:var(--font-mono);text-align:center;">No pending Counselor/HR requests yet. Test the form on the homepage!</td></tr>`;
+              return;
+            }
+            tbody.innerHTML = list.map(v => {
+              const verifyUrl = `${window.location.origin}/verify-voucher?token=${encodeURIComponent(v.verify_token || "")}&domain=${encodeURIComponent(v.institution_domain)}&tier=${encodeURIComponent(v.institution_type)}`;
+              const mailSubject = encodeURIComponent(`[OISM.institute] Confirm Good Standing for ${v.applicant_email} (${v.discount_pct}% Subsidy Voucher)`);
+              const mailBody = encodeURIComponent(`Dear ${v.gatekeeper_name},\n\nCandidate ${v.applicant_email} has nominated you as their Institutional Gatekeeper (${v.institution_domain}) to unlock 1 of your institution's rationed ${v.discount_pct}% Cover-Charge Subsidy Vouchers for the October 2028 OISM Evaluation Window.\n\nClick here to confirm their Good Standing in 1 click:\n${verifyUrl}\n\nIn Sovereign Mastery,\nThe Scribe Chancellor\nhttps://oism.institute`);
+              return `
+                <tr>
+                  <td>#${v.id}</td>
+                  <td><code>${v.applicant_email}</code></td>
+                  <td><strong>${v.gatekeeper_name}</strong><br><code>${v.gatekeeper_email}</code></td>
+                  <td><code>${v.institution_domain}</code><br><span class="badge-code">${v.institution_type} (${v.discount_pct}% OFF)</span></td>
+                  <td><strong>${v.status}</strong>${v.voucher_code ? `<br><code style="color:#008037;font-weight:800;">${v.voucher_code}</code>` : ""}</td>
+                  <td>
+                    <a href="${verifyUrl}" target="_blank" class="chip-btn" style="text-decoration:none;display:inline-block;margin-bottom:4px;">⚡ 1-Click Approve</a>
+                    <a href="mailto:${v.gatekeeper_email}?subject=${mailSubject}&body=${mailBody}" class="chip-btn" style="text-decoration:none;display:inline-block;">✉️ Email Gatekeeper</a>
+                  </td>
+                </tr>
+              `;
+            }).join("");
+            return;
+          }
+        } catch (e) {}
+        tbody.innerHTML = `<tr><td colspan="6" style="font-family:var(--font-mono);text-align:center;">Connect to Local Origin or Edge D1 to view live voucher queue.</td></tr>`;
+      }
+
+      refreshCanvas();
+      loadVouchers();
+    })();
+  </script>
+</body>
+</html>

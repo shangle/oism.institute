@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Sovereign Credential — OISM.institute Registry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="telemetry-header">
+    <nav class="nav-bar">
+      <a href="/" class="brand-cluster">
+        <div class="omega-crest">Ω</div>
+        <div class="brand-titles">
+          <span class="brand-name">OISM.INSTITUTE // PUBLIC REGISTRY</span>
+          <span class="brand-latin">Omega Institutum Dominii Supremi • Cryptographic Provenance</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/">← Return to Main Portal</a>
+        <a href="/admin" class="nav-cta">Chancellor Console</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section-block section-off" id="verify" style="min-height:82vh;">
+    <div class="container">
+      <div class="eyebrow-badge ultramarine">OFFICIAL SOVEREIGN ALUMNI VERIFICATION</div>
+      <h1 class="section-title">PUBLIC CREDENTIAL VERIFICATION REGISTRY</h1>
+      <p class="section-subtitle">
+        Verify any Cohort 2027 Founding Beta Fellow's cryptographic SHA-256 signature, clerical investiture, and post-nominal designations.
+      </p>
+
+      <div class="verify-console">
+        <div class="verify-search-bar">
+          <input type="text" id="verify-serial-input" class="brutal-input" value="OISM-2027-Ω-0001" placeholder="Enter Serial ID (e.g. OISM-2027-Ω-0001)" />
+          <button type="button" id="btn-verify-serial" class="btn-brutal">
+            🔍 Verify Credential
+          </button>
+        </div>
+
+        <div id="verify-dossier-container"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/diploma.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
