@@ -3,43 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gatekeeper 1-Click Voucher Release — OISM.institute</title>
+  <title>Institutional Gatekeeper Attestation | Office of Financial Aid — OISM.institute</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-  <header class="telemetry-header">
-    <nav class="nav-bar">
-      <a href="/" class="brand-cluster">
-        <div class="omega-crest">Ω</div>
-        <div class="brand-titles">
-          <span class="brand-name">OISM.INSTITUTE // GATEKEEPER VERIFICATION</span>
-          <span class="brand-latin">Institutional Subsidy &amp; Scarcity Engine</span>
+  <div class="utility-bar">
+    <div class="utility-container">
+      <div class="utility-left">
+        <span>Office of Financial Aid &amp; Institutional Partnerships</span>
+      </div>
+      <ul class="utility-links">
+        <li><a href="../">← Return to Institutional Home</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <header class="institutional-header">
+    <div class="header-main">
+      <a href="../" class="brand-lockup">
+        <div class="seminary-crest">
+          <span class="crest-omega">Ω</span>
+          <span class="crest-date">387 BCE</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-super">Omega Institutum Dominii Supremi</span>
+          <span class="brand-title">Omega Institute of Sovereign Mastery</span>
+          <span class="brand-subtitle">Institutional Fee-Waiver &amp; Gatekeeper Attestation Portal</span>
         </div>
       </a>
-      <div class="nav-links">
-        <a href="../">← Return to OISM.institute</a>
-      </div>
-    </nav>
+    </div>
   </header>
 
-  <main class="section-block section-off" style="min-height:82vh;">
+  <main class="section-block alt-bg" style="min-height:80vh;">
     <div class="container" style="max-width:780px;">
-      <div class="eyebrow-badge amber">INSTITUTIONAL GATEKEEPER ATTESTATION</div>
-      <h1 class="section-title" style="font-size:2.3rem;">CONFIRM CANDIDATE GOOD STANDING</h1>
-      <p class="section-subtitle">
-        As a nominated High School Guidance Counselor, Academic Advisor, Non-Profit Clerical Supervisor, or Corporate HR Director, confirming this candidate's good standing releases <strong>1 of your institution's strictly rationed annual subsidy codes</strong> for the October 2028 OISM Evaluation Floor.
-      </p>
+      <div class="section-header">
+        <div class="section-kicker">Institutional Subsidy Attestation</div>
+        <h1 class="section-title">Confirm Candidate Good Standing</h1>
+        <p class="section-lead">
+          As a nominated High School Guidance Counselor, Academic Advisor, Non-Profit Clerical Supervisor, or Corporate Human Resources Director, confirming this candidate's standing releases <strong>1 of your institution's annual evaluation fee-waiver vouchers</strong> for the October 2028 application cycle.
+        </p>
+      </div>
 
       <div class="verify-console" id="voucher-verify-box">
-        <div style="font-family:var(--font-mono);font-size:13px;margin-bottom:20px;" id="voucher-token-details">
-          Inspecting Gatekeeper Token...
+        <div style="font-size:13.5px;margin-bottom:20px;" id="voucher-token-details">
+          Inspecting Requisition Record...
         </div>
 
         <button type="button" class="btn-brutal" id="btn-confirm-standing" style="width:100%;">
-          ✓ CONFIRM CANDIDATE GOOD STANDING &amp; MINT SINGLE-USE VOUCHER CODE
+          Confirm Candidate Good Standing &amp; Issue Institutional Voucher Code
         </button>
 
         <div id="voucher-minted-output" style="display:none;margin-top:24px;"></div>
@@ -61,7 +75,7 @@
       detailsEl.innerHTML = `
         <div class="dossier-grid">
           <div class="dossier-field">
-            <div class="dossier-label">Verification Token</div>
+            <div class="dossier-label">Attestation Token</div>
             <div class="dossier-val">${token}</div>
           </div>
           <div class="dossier-field">
@@ -73,7 +87,7 @@
 
       btnConfirm.addEventListener("click", async () => {
         btnConfirm.disabled = true;
-        btnConfirm.textContent = "MINTING CRYPTOGRAPHIC SUBSIDY CODE...";
+        btnConfirm.textContent = "Issuing Institutional Fee-Waiver Code...";
 
         try {
           const res = await fetch(`/api/verify-voucher?token=${encodeURIComponent(token)}`, {
@@ -90,7 +104,6 @@
           }
         } catch (e) {}
 
-        // Deterministic fallback if static
         const prefix = tier === "TITLE1_HS" ? "HS90" : tier === "STD_HS" ? "HS50" : tier === "NONPROFIT" ? "NP35" : "HR10";
         const pct = tier === "TITLE1_HS" ? 90 : tier === "STD_HS" ? 50 : tier === "NONPROFIT" ? 35 : 10;
         const hash = Math.random().toString(16).slice(2, 6).toUpperCase();
@@ -102,17 +115,17 @@
         outEl.style.display = "block";
         const net = Math.round(500 * (1 - pct / 100));
         outEl.innerHTML = `
-          <div class="dossier-output" style="border-color:#00C853;background:#F3FFF8;">
-            <div style="font-family:var(--font-mono);font-size:12px;font-weight:800;color:#008037;">
-              ✓ GOOD STANDING CONFIRMED — INSTITUTIONAL QUOTA DECREMENTED
+          <div class="dossier-output" style="border-left:4px solid #1E5631;">
+            <div style="font-size:12px;font-weight:700;color:#1E5631;text-transform:uppercase;letter-spacing:0.06em;">
+              ✓ Good Standing Confirmed — Institutional Allocation Updated
             </div>
-            <div style="font-family:var(--font-mono);font-size:2rem;font-weight:800;margin:12px 0;color:#0A0A0A;background:#FFF;padding:14px;border:2px solid #0A0A0A;text-align:center;">
+            <div style="font-family:var(--font-serif);font-size:1.85rem;font-weight:700;margin:12px 0;color:var(--navy);background:#FFF;padding:14px;border:1px solid var(--border-dark);text-align:center;">
               ${code}
             </div>
-            <div style="font-family:var(--font-mono);font-size:12.5px;line-height:1.6;">
-              • <strong>Discount Unlocked:</strong> ${pct}% OFF ($${net}.00 Net Cover Charge vs. $500.00 Base)<br>
-              • <strong>Institution Domain:</strong> <code>${instDomain}</code> (${rem} annual voucher slot(s) remaining)<br>
-              • <strong>Redemption Window:</strong> October 1, 2028 (00:00 UTC) – October 31, 2028 (23:59 UTC)
+            <div style="font-size:13.5px;line-height:1.6;">
+              &bull; <strong>Authorized Fee Waiver:</strong> ${pct}% Subsidy ($${net}.00 Net Evaluation Fee vs. $500.00 Standard Fee)<br>
+              &bull; <strong>Institution Domain:</strong> <code>${instDomain}</code> (${rem} annual voucher allocation(s) remaining)<br>
+              &bull; <strong>Redemption Window:</strong> October 1, 2028 (00:00 UTC) – October 31, 2028 (23:59 UTC)
             </div>
           </div>
         `;

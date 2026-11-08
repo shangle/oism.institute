@@ -3,42 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verify Sovereign Credential — OISM.institute Registry</title>
+  <title>Office of the Registrar | Verify Credential — OISM.institute</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-  <header class="telemetry-header">
-    <nav class="nav-bar">
-      <a href="/" class="brand-cluster">
-        <div class="omega-crest">Ω</div>
-        <div class="brand-titles">
-          <span class="brand-name">OISM.INSTITUTE // PUBLIC REGISTRY</span>
-          <span class="brand-latin">Omega Institutum Dominii Supremi • Cryptographic Provenance</span>
+  <div class="utility-bar">
+    <div class="utility-container">
+      <div class="utility-left">
+        <span>Office of the Registrar &amp; Permanent Archives &bull; Academic Year 2027–2028</span>
+      </div>
+      <ul class="utility-links">
+        <li><a href="../">← Return to Institutional Home</a></li>
+        <li><a href="../admin/">Office of the Chancellor</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <header class="institutional-header">
+    <div class="header-main">
+      <a href="../" class="brand-lockup">
+        <div class="seminary-crest">
+          <span class="crest-omega">Ω</span>
+          <span class="crest-date">387 BCE</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-super">Omega Institutum Dominii Supremi</span>
+          <span class="brand-title">Omega Institute of Sovereign Mastery</span>
+          <span class="brand-subtitle">Office of the Registrar &amp; Public Credential Verification</span>
         </div>
       </a>
-      <div class="nav-links">
-        <a href="../">← Return to Main Portal</a>
-        <a href="../admin/" class="nav-cta">Chancellor Console</a>
-      </div>
-    </nav>
+      <nav class="primary-nav">
+        <a href="../">Program Overview</a>
+        <a href="../admin/" class="nav-btn-inquire">Chancellor Console</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="section-block section-off" id="verify" style="min-height:82vh;">
+  <main class="section-block alt-bg" id="verify" style="min-height:80vh;">
     <div class="container">
-      <div class="eyebrow-badge ultramarine">OFFICIAL SOVEREIGN ALUMNI VERIFICATION</div>
-      <h1 class="section-title">PUBLIC CREDENTIAL VERIFICATION REGISTRY</h1>
-      <p class="section-subtitle">
-        Verify any Cohort 2027 Founding Beta Fellow's cryptographic SHA-256 signature, clerical investiture, and post-nominal designations.
-      </p>
+      <div class="section-header">
+        <div class="section-kicker">Official Archival Verification</div>
+        <h1 class="section-title">Public Alumni &amp; Credential Verification Registry</h1>
+        <p class="section-lead">
+          Verify any Cohort 2027 Founding Beta Fellow's cryptographic SHA-256 record, clerical investiture, and conferred post-nominal designations.
+        </p>
+      </div>
 
       <div class="verify-console">
         <div class="verify-search-bar">
-          <input type="text" id="verify-serial-input" class="brutal-input" value="OISM-2027-Ω-0001" placeholder="Enter Serial ID (e.g. OISM-2027-Ω-0001)" />
+          <input type="text" id="verify-serial-input" class="brutal-input" value="OISM-2027-Ω-0001" placeholder="Enter Credential Serial Number (e.g., OISM-2027-Ω-0001)" />
           <button type="button" id="btn-verify-serial" class="btn-brutal">
-            🔍 Verify Credential
+            Search Registry
           </button>
         </div>
 

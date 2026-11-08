@@ -1,34 +1,28 @@
 /* ============================================================================
-   OISM.institute — "Neo-Athenian Hype Drop × Crypto-Bro Endowment Engine"
-   Color Palette:
-   - Pentelic Marble White: #FFFFFF
-   - Stark Carbon:          #0A0A0A
-   - Socratic Ultramarine:  #002FA7
-   - Warning Drop Amber:    #FF4D00
-   - Endowment Bullion:     #C5A059
+   OISM.institute — Institutional Seminary & Executive Education stylesheet
+   Visual Reference: Asbury Theological Seminary × Wharton / ABA Stonier
+   Aesthetic: Conservative Higher-Ed Committee Drupal/WordPress Enterprise Theme
    ============================================================================ */
 
 :root {
-  --marble: #FFFFFF;
-  --marble-off: #F6F5F0;
-  --carbon: #0A0A0A;
-  --carbon-soft: #161616;
-  --ultramarine: #002FA7;
-  --ultramarine-bright: #1B4DFF;
-  --amber: #FF4D00;
-  --bullion: #C5A059;
-  --bullion-light: #E5C883;
-  --emerald: #00C853;
-  --font-display: 'Syne', 'Space Grotesk', sans-serif;
-  --font-classical: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --border-brutal: 2px solid #0A0A0A;
-  --shadow-brutal: 6px 6px 0px #0A0A0A;
-  --shadow-brutal-sm: 4px 4px 0px #0A0A0A;
-  --shadow-blue: 6px 6px 0px #002FA7;
-  --shadow-amber: 6px 6px 0px #FF4D00;
-  --shadow-bullion: 6px 6px 0px #C5A059;
+  --navy: #00204E;          /* Deep Seminary / Wharton Institutional Navy */
+  --navy-dark: #001535;     /* Utility Top Bar Dark Navy */
+  --navy-muted: #1E3A5F;    /* Secondary Subheaders */
+  --crimson: #8B1E24;       /* Wharton/Academic Burgundy Accent */
+  --gold: #9A7B38;          /* Muted Heritage Brass / Seminary Gold */
+  --gold-light: #F5F1E6;    /* Warm Parchment Callout Tint */
+  --ivory: #FAF9F5;         /* Warm Off-White Page Background */
+  --white: #FFFFFF;
+  --slate-bg: #F1F3F6;      /* Alternating Section Gray-Blue */
+  --border: #D5DCE2;        /* Standard 1px Committee Table/Card Rule */
+  --border-dark: #B8C2CC;
+  --text-main: #22262A;
+  --text-muted: #525A65;
+  --text-light: #6C757D;
+  --success: #1E5631;
+  --font-serif: 'Libre Baskerville', 'EB Garamond', 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3', 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
 }
 
 * {
@@ -39,591 +33,608 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--marble);
-  color: var(--carbon);
+  background-color: var(--ivory);
+  color: var(--text-main);
   font-family: var(--font-sans);
+  font-size: 16px;
 }
 
 body {
-  background-color: var(--marble);
-  color: var(--carbon);
-  overflow-x: hidden;
-  line-height: 1.5;
-  background-image:
-    radial-gradient(#0a0a0a12 1px, transparent 1px),
-    linear-gradient(to right, #0a0a0a06 1px, transparent 1px),
-    linear-gradient(to bottom, #0a0a0a06 1px, transparent 1px);
-  background-size: 24px 24px, 96px 96px, 96px 96px;
+  background-color: var(--ivory);
+  color: var(--text-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--ultramarine);
+  color: var(--navy);
   text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: 600;
+  text-underline-offset: 2px;
 }
+
 a:hover {
-  color: var(--amber);
+  color: var(--crimson);
 }
 
 /* ----------------------------------------------------------------------------
-   SECTION 1: STICKY PROTOCOL TELEMETRY BAR + NAV
+   1. TOP UTILITY BAR & INSTITUTIONAL MASTHEAD (Asbury / Wharton Style)
    ---------------------------------------------------------------------------- */
-.telemetry-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--carbon);
-  color: var(--marble);
-  border-bottom: 2px solid var(--carbon);
+.utility-bar {
+  background-color: var(--navy-dark);
+  color: #D9E1E8;
+  font-size: 12.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.telemetry-bar {
+.utility-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 7px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: var(--carbon);
-  border-bottom: 1px solid #262626;
-  height: 38px;
-  overflow: hidden;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.node-status-pill {
+.utility-left {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: #141414;
-  padding: 0 14px;
-  height: 100%;
-  border-right: 1px solid #333;
-  white-space: nowrap;
-  z-index: 2;
-  font-weight: 700;
+  gap: 16px;
+  font-size: 12px;
+  color: #B8C6D4;
+}
+
+.node-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .node-dot {
-  width: 9px;
-  height: 9px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--emerald);
-  box-shadow: 0 0 10px var(--emerald);
-  animation: pulseDot 1.8s infinite ease-in-out;
+  background-color: #3B9E66;
 }
 
 .node-dot.edge {
-  background: var(--bullion);
-  box-shadow: 0 0 10px var(--bullion);
+  background-color: #C9A24B;
 }
 
-@keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.25); opacity: 0.65; }
-}
-
-.marquee-wrap {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-  height: 100%;
+.utility-links {
   display: flex;
   align-items: center;
+  gap: 18px;
+  list-style: none;
 }
 
-.marquee-track {
-  display: flex;
-  white-space: nowrap;
-  animation: scrollMarquee 38s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-.marquee-item {
-  padding: 0 24px;
-  color: #E0E0E0;
-}
-
-.marquee-item strong {
-  color: var(--bullion-light);
-}
-
-.marquee-item .amber-tag {
-  color: var(--amber);
-  font-weight: 700;
-}
-
-@keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 28px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
-  color: var(--carbon);
-  border-bottom: var(--border-brutal);
-}
-
-.brand-cluster {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.utility-links a {
+  color: #D9E1E8;
   text-decoration: none;
-  color: var(--carbon);
+  font-weight: 500;
+  font-size: 12px;
 }
 
-.omega-crest {
-  width: 40px;
-  height: 40px;
-  background: var(--ultramarine);
-  color: var(--marble);
-  border: var(--border-brutal);
+.utility-links a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+/* Primary Institutional Header */
+.institutional-header {
+  background-color: var(--white);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.header-main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 20px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--navy);
+}
+
+.seminary-crest {
+  width: 54px;
+  height: 54px;
+  border: 2px solid var(--navy);
+  background-color: var(--navy);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-classical);
-  font-size: 22px;
-  font-weight: 800;
-  box-shadow: 3px 3px 0px var(--carbon);
+  font-family: var(--font-serif);
+  position: relative;
+  flex-shrink: 0;
 }
 
-.brand-titles {
+.seminary-crest::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+}
+
+.crest-omega {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 700;
+  color: #E5D1A7;
+}
+
+.crest-date {
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: #D0D7DE;
+  margin-top: 2px;
+}
+
+.brand-text {
   display: flex;
   flex-direction: column;
 }
 
-.brand-name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 17px;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.brand-latin {
-  font-family: var(--font-classical);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: #555;
+.brand-super {
+  font-family: var(--font-sans);
+  font-size: 11px;
   text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.nav-links a {
-  color: var(--carbon);
-  text-decoration: none;
-  padding: 6px 10px;
-  border: 1px solid transparent;
-  transition: all 0.15s ease;
-}
-
-.nav-links a:hover {
-  border-color: var(--carbon);
-  background: var(--marble-off);
-}
-
-.nav-cta {
-  background: var(--ultramarine) !important;
-  color: var(--marble) !important;
-  border: var(--border-brutal) !important;
-  box-shadow: 3px 3px 0px var(--carbon);
-  padding: 7px 14px !important;
+  letter-spacing: 0.14em;
+  color: var(--gold);
   font-weight: 700;
 }
 
-.nav-cta:hover {
-  background: var(--amber) !important;
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px var(--carbon);
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.primary-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.primary-nav a {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.primary-nav a:hover {
+  color: var(--crimson);
+  border-bottom-color: var(--crimson);
+}
+
+.nav-btn-inquire {
+  background-color: var(--crimson) !important;
+  color: var(--white) !important;
+  padding: 9px 18px !important;
+  border-radius: 2px;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid #6E1419 !important;
+}
+
+.nav-btn-inquire:hover {
+  background-color: var(--navy) !important;
+  border-color: var(--navy) !important;
 }
 
 /* ----------------------------------------------------------------------------
-   LAYOUT CONTAINERS & COMMON COMPONENTS
+   2. BREADCRUMB & PROGRAM BANNER (Wharton / ABA Stonier Style)
    ---------------------------------------------------------------------------- */
-.container {
-  max-width: 1280px;
+.breadcrumb-bar {
+  background-color: var(--slate-bg);
+  border-bottom: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.breadcrumb-inner {
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 24px;
-}
-
-.section-block {
-  padding: 76px 0;
-  border-bottom: var(--border-brutal);
-}
-
-.section-dark {
-  background: var(--carbon);
-  color: var(--marble);
-}
-
-.section-off {
-  background: var(--marble-off);
-}
-
-.eyebrow-badge {
-  display: inline-flex;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+}
+
+.breadcrumb-trail a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.breadcrumb-trail a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  margin: 0 7px;
+  color: #9AA5B1;
+}
+
+.program-hero {
+  background: linear-gradient(180deg, #00204E 0%, #00183B 100%);
+  color: var(--white);
+  border-bottom: 4px solid var(--gold);
+  padding: 48px 0 54px;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.program-category-label {
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 6px 12px;
-  border: var(--border-brutal);
-  background: var(--marble);
-  color: var(--carbon);
-  box-shadow: 3px 3px 0px var(--carbon);
+  letter-spacing: 0.12em;
+  color: #E2C686;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.program-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 3.1vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--white);
   margin-bottom: 18px;
 }
 
-.eyebrow-badge.ultramarine {
-  background: var(--ultramarine);
-  color: var(--marble);
+.program-lead {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #DCE3EC;
+  margin-bottom: 24px;
 }
 
-.eyebrow-badge.amber {
-  background: var(--amber);
-  color: var(--marble);
+.program-lead a {
+  color: #E2C686;
 }
 
-.eyebrow-badge.bullion {
-  background: var(--bullion);
-  color: var(--carbon);
+/* Stonier-style At-a-Glance Metadata Table inside Hero */
+.at-a-glance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 24px;
 }
 
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4.2vw, 3.6rem);
-  font-weight: 800;
+.glance-cell {
+  padding: 16px 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glance-cell:last-child {
+  border-right: none;
+}
+
+.glance-label {
+  font-size: 11px;
   text-transform: uppercase;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.08em;
+  color: #B8C6D4;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.glance-value {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.glance-note {
+  font-size: 12px;
+  color: #CBD5E0;
+  margin-top: 2px;
+}
+
+/* Right Sidebar Card in Hero: Admissions Calendar & Committee Notice */
+.admissions-summary-card {
+  background-color: var(--white);
+  color: var(--text-main);
+  border: 1px solid var(--border-dark);
+  border-top: 4px solid var(--crimson);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  padding: 26px 24px;
+}
+
+.summary-card-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
   margin-bottom: 16px;
 }
 
-.section-subtitle {
-  font-size: 1.12rem;
-  max-width: 780px;
-  color: #333;
-  margin-bottom: 36px;
+.summary-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--navy);
+  font-weight: 700;
 }
 
-.section-dark .section-subtitle {
-  color: #CCCCCC;
+.summary-card-sub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
 }
 
+.cohort-status-row {
+  background-color: var(--gold-light);
+  border: 1px solid #DFD3B6;
+  border-left: 4px solid var(--gold);
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: #4A3B18;
+  margin-bottom: 16px;
+}
+
+.countdown-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.countdown-table {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  background-color: var(--slate-bg);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.cd-item {
+  padding: 10px 4px;
+  border-right: 1px solid var(--border);
+}
+
+.cd-item:last-child {
+  border-right: none;
+}
+
+.cd-number {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+.cd-caption {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.socratic-epigraph {
+  font-family: var(--font-serif);
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+/* Statutory Disclosure Notice Box (Framed like an Academic / Accreditation Footnote) */
+.statutory-notice-panel {
+  margin-top: 24px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-left: 4px solid #E2C686;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: #E2E8F0;
+  line-height: 1.55;
+}
+
+.statutory-notice-panel strong {
+  color: #FFFFFF;
+}
+
+/* ----------------------------------------------------------------------------
+   3. SUB-NAVIGATION TABS (Wharton Program Page Anchor Bar)
+   ---------------------------------------------------------------------------- */
+.program-subnav {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.subnav-list {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.subnav-list li a {
+  display: block;
+  padding: 14px 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+}
+
+.subnav-list li a:hover {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+  background-color: var(--ivory);
+}
+
+/* ----------------------------------------------------------------------------
+   4. COMMON INSTITUTIONAL SECTIONS, BUTTONS & TABLES
+   ---------------------------------------------------------------------------- */
+.section-block {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--white);
+}
+
+.section-block.alt-bg {
+  background-color: var(--ivory);
+}
+
+.section-block.slate-bg {
+  background-color: var(--slate-bg);
+}
+
+.section-header {
+  margin-bottom: 32px;
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 14px;
+}
+
+.section-kicker {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--crimson);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.section-lead {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  max-width: 820px;
+  margin-top: 8px;
+}
+
+/* Standard Committee Buttons */
+.btn-institutional,
 .btn-brutal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 14px 24px;
-  border: var(--border-brutal);
-  background: var(--ultramarine);
-  color: var(--marble);
-  box-shadow: var(--shadow-brutal);
+  letter-spacing: 0.04em;
+  padding: 11px 20px;
+  border-radius: 2px;
+  border: 1px solid var(--navy);
+  background-color: var(--navy);
+  color: var(--white);
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
+.btn-institutional:hover,
 .btn-brutal:hover {
-  background: var(--amber);
-  color: var(--marble);
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0px var(--carbon);
+  background-color: var(--crimson);
+  border-color: var(--crimson);
+  color: var(--white);
 }
 
+.btn-institutional.secondary,
 .btn-brutal.secondary {
-  background: var(--marble);
-  color: var(--carbon);
+  background-color: var(--white);
+  color: var(--navy);
+  border: 1px solid var(--border-dark);
 }
 
+.btn-institutional.secondary:hover,
 .btn-brutal.secondary:hover {
-  background: var(--bullion);
-  color: var(--carbon);
+  background-color: var(--slate-bg);
+  border-color: var(--navy);
+  color: var(--navy);
 }
 
+.btn-institutional.crimson,
 .btn-brutal.amber {
-  background: var(--amber);
-  color: var(--marble);
+  background-color: var(--crimson);
+  border-color: #6E1419;
+  color: var(--white);
 }
 
-/* ----------------------------------------------------------------------------
-   SECTION 2: HERO & THE OCTOBER 2028 ADMISSIONS DROP
-   ---------------------------------------------------------------------------- */
-.hero-section {
-  padding: 56px 0 72px;
-  border-bottom: var(--border-brutal);
-  position: relative;
+.btn-institutional.crimson:hover,
+.btn-brutal.amber:hover {
+  background-color: var(--navy);
+  border-color: var(--navy);
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.95fr;
-  gap: 36px;
-  align-items: start;
-}
-
-.cohort-lock-banner {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--carbon);
-  color: var(--bullion-light);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 8px 14px;
-  border: 2px solid var(--bullion);
-  box-shadow: 4px 4px 0px var(--ultramarine);
-  margin-bottom: 22px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.hero-headline {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.4rem, 5vw, 4.35rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-}
-
-.hero-headline .highlight-blue {
-  background: var(--ultramarine);
-  color: var(--marble);
-  padding: 0 10px;
-  display: inline-block;
-}
-
-.hero-headline .highlight-amber {
-  color: var(--amber);
-  text-decoration: underline;
-  text-decoration-thickness: 4px;
-}
-
-.hero-subheadline {
-  font-size: 1.16rem;
-  line-height: 1.55;
-  color: #1f1f1f;
-  margin-bottom: 26px;
-  max-width: 680px;
-}
-
-.tuition-math-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: var(--border-brutal);
-  background: var(--marble);
-  box-shadow: var(--shadow-brutal);
+/* Academic Catalog Tables */
+.catalog-table-wrap,
+.taxonomy-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-dark);
+  background-color: var(--white);
   margin-bottom: 28px;
 }
 
-.math-cell {
-  padding: 16px 18px;
-  border-right: var(--border-brutal);
-}
-
-.math-cell:last-child {
-  border-right: none;
-  background: var(--ultramarine);
-  color: var(--marble);
-}
-
-.math-label {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.8;
-  margin-bottom: 4px;
-}
-
-.math-value {
-  font-family: var(--font-mono);
-  font-size: 1.45rem;
-  font-weight: 800;
-}
-
-.math-sub {
-  font-size: 11.5px;
-  margin-top: 2px;
-  opacity: 0.85;
-}
-
-/* Socratic HUD + Countdown Right Column */
-.socratic-hud-card {
-  background: var(--carbon);
-  color: var(--marble);
-  border: var(--border-brutal);
-  box-shadow: 8px 8px 0px var(--ultramarine);
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hud-top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #333;
-  padding-bottom: 12px;
-  margin-bottom: 18px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--bullion-light);
-}
-
-.marble-bust-frame {
-  position: relative;
-  background: radial-gradient(circle at 50% 35%, #1c2c54 0%, #0d0d0d 72%);
-  border: 2px solid var(--ultramarine);
-  padding: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.hud-reticle {
-  position: absolute;
-  inset: 10px;
-  border: 1px dashed rgba(0, 47, 167, 0.7);
-  pointer-events: none;
-}
-
-.hud-corner {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--amber);
-  border-style: solid;
-}
-.hud-corner.tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
-.hud-corner.tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
-.hud-corner.bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
-.hud-corner.br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
-
-.socratic-quote-banner {
-  font-family: var(--font-classical);
-  font-size: 13px;
-  color: #EBEBEB;
-  line-height: 1.45;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #2b2b2b;
-}
-
-.countdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.countdown-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.cd-box {
-  background: #141414;
-  border: 2px solid #333;
-  padding: 12px 6px;
-  text-align: center;
-}
-
-.cd-num {
-  font-family: var(--font-mono);
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: var(--marble);
-  line-height: 1.1;
-}
-
-.cd-unit {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--bullion);
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-
-/* Mandatory Gambling / Sweepstakes Odds Disclosure Box */
-.odds-disclosure-box {
-  margin-top: 28px;
-  border: 3px solid var(--carbon);
-  background: #FFF7F2;
-  box-shadow: 6px 6px 0px var(--amber);
-  padding: 20px 24px;
-  position: relative;
-}
-
-.odds-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 800;
-  color: var(--marble);
-  background: var(--amber);
-  padding: 6px 12px;
-  border: 2px solid var(--carbon);
-  display: inline-flex;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.odds-body {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: var(--carbon);
-}
-
-/* ----------------------------------------------------------------------------
-   SECTION 3: CREDENTIAL TAXONOMY & INSTITUTIONAL VOUCHER ENGINE
-   ---------------------------------------------------------------------------- */
-.taxonomy-table-wrap {
-  overflow-x: auto;
-  border: var(--border-brutal);
-  box-shadow: var(--shadow-brutal);
-  background: var(--marble);
-  margin-bottom: 36px;
-}
-
+.catalog-table,
 .brutal-table {
   width: 100%;
   border-collapse: collapse;
@@ -631,204 +642,239 @@ a:hover {
   font-size: 14px;
 }
 
+.catalog-table th,
 .brutal-table th {
-  background: var(--carbon);
-  color: var(--marble);
-  font-family: var(--font-mono);
+  background-color: var(--navy);
+  color: var(--white);
+  font-family: var(--font-sans);
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 14px 16px;
-  border-right: 1px solid #333;
+  padding: 13px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.catalog-table td,
 .brutal-table td {
-  padding: 15px 16px;
-  border-bottom: 2px solid var(--carbon);
-  border-right: 2px solid var(--carbon);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
   vertical-align: top;
+  color: var(--text-main);
 }
 
+.catalog-table tr:nth-child(even) td,
 .brutal-table tr:nth-child(even) td {
-  background: #FAFAFA;
+  background-color: #F9FAFB;
 }
 
 .badge-code {
-  font-family: var(--font-mono);
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-weight: 700;
   font-size: 13px;
-  background: var(--ultramarine);
-  color: var(--marble);
-  padding: 4px 8px;
-  border: 1.5px solid var(--carbon);
+  color: var(--navy);
+  background-color: var(--slate-bg);
+  border: 1px solid var(--border-dark);
+  padding: 3px 8px;
   display: inline-block;
   white-space: nowrap;
 }
 
-.full-stack-banner {
-  background: var(--carbon);
-  color: var(--bullion-light);
-  border: var(--border-brutal);
-  box-shadow: var(--shadow-bullion);
-  padding: 18px 24px;
-  font-family: var(--font-mono);
-  font-size: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+.conferral-banner {
+  background-color: var(--gold-light);
+  border: 1px solid #DFD3B6;
+  border-left: 4px solid var(--gold);
+  padding: 16px 20px;
   margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
 }
 
-/* Scarcity Checker + Form Grid */
+.conferral-banner code {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  background-color: var(--white);
+  padding: 5px 12px;
+  border: 1px solid #D5C7A3;
+}
+
+/* ----------------------------------------------------------------------------
+   5. INSTITUTIONAL FEE-WAIVER & VOUCHER FORMS
+   ---------------------------------------------------------------------------- */
 .voucher-engine-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 32px;
-  margin-top: 32px;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 28px;
+  margin-top: 24px;
 }
 
-.scarcity-card, .voucher-form-card {
-  background: var(--marble);
-  border: var(--border-brutal);
-  box-shadow: var(--shadow-brutal);
-  padding: 28px;
+.committee-panel,
+.scarcity-card,
+.voucher-form-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-dark);
+  border-top: 3px solid var(--navy);
+  padding: 26px;
 }
 
 .scarcity-input-group {
   display: flex;
   gap: 10px;
-  margin: 16px 0;
+  margin: 14px 0;
 }
 
-.brutal-input, .brutal-select, .brutal-textarea {
+.brutal-input,
+.brutal-select,
+.brutal-textarea {
   width: 100%;
-  padding: 12px 14px;
-  border: var(--border-brutal);
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  background: var(--marble);
-  color: var(--carbon);
+  padding: 10px 12px;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  background-color: var(--white);
+  color: var(--text-main);
   outline: none;
 }
 
-.brutal-input:focus, .brutal-select:focus, .brutal-textarea:focus {
-  border-color: var(--ultramarine);
-  box-shadow: 4px 4px 0px var(--ultramarine);
+.brutal-input:focus,
+.brutal-select:focus,
+.brutal-textarea:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 2px rgba(0, 32, 78, 0.12);
 }
 
 .scarcity-result-box {
-  border: 2px solid var(--amber);
-  background: #FFF4EE;
-  padding: 16px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
+  border: 1px solid #D5C7A3;
+  border-left: 4px solid var(--crimson);
+  background-color: var(--gold-light);
+  padding: 14px 16px;
+  font-size: 13.5px;
   margin-top: 14px;
+  color: var(--text-main);
 }
 
 .form-field {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .form-field label {
   display: block;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 12.5px;
   font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 6px;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+
+.chip-btn {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  padding: 4px 10px;
+  background-color: var(--slate-bg);
+  color: var(--navy);
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.chip-btn:hover {
+  background-color: #E2E8F0;
 }
 
 /* ----------------------------------------------------------------------------
-   SECTION 4: THE ENDOWMENT MOON-MATH TERMINAL
+   6. BOARD OF TRUSTEES FINANCIAL STEWARDSHIP & ENDOWMENT REPORT
    ---------------------------------------------------------------------------- */
-.moon-terminal {
-  background: #0F0F0F;
-  border: 2px solid var(--bullion);
-  box-shadow: 8px 8px 0px var(--bullion);
-  padding: 32px;
-  color: var(--marble);
+.endowment-report-frame {
+  background-color: var(--white);
+  border: 1px solid var(--border-dark);
+  border-top: 4px solid var(--gold);
+  padding: 30px;
 }
 
 .benchmark-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .bench-card {
-  background: #171717;
-  border: 1.5px solid #333;
+  background-color: var(--ivory);
+  border: 1px solid var(--border);
   padding: 18px;
 }
 
 .bench-card.oism-highlight {
-  border: 2px solid var(--bullion);
-  background: linear-gradient(145deg, #1b170e 0%, #121212 100%);
+  background-color: var(--gold-light);
+  border-color: #D5C7A3;
+  border-top: 3px solid var(--gold);
 }
 
 .bench-title {
-  font-family: var(--font-mono);
   font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--bullion-light);
-  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
 }
 
 .bench-stat {
-  font-family: var(--font-mono);
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
   margin-bottom: 6px;
 }
 
 .bench-desc {
   font-size: 12.5px;
-  color: #BBBBBB;
-  line-height: 1.45;
-}
-
-.bench-desc a {
-  color: var(--bullion-light);
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .moon-interactive-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.25fr;
+  grid-template-columns: 1fr 1.25fr;
   gap: 28px;
   align-items: stretch;
 }
 
 .sliders-panel {
-  background: #161616;
-  border: 1.5px solid #333;
-  padding: 24px;
+  background-color: var(--slate-bg);
+  border: 1px solid var(--border);
+  padding: 22px;
 }
 
 .slider-item {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .slider-top {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
 }
 
 .slider-val {
-  color: var(--bullion-light);
-  font-weight: 800;
+  color: var(--crimson);
+  font-weight: 700;
 }
 
 input[type="range"].oism-slider {
   width: 100%;
-  accent-color: var(--bullion);
-  height: 8px;
-  background: #333;
+  accent-color: var(--navy);
+  height: 6px;
   cursor: pointer;
 }
 
@@ -836,45 +882,45 @@ input[type="range"].oism-slider {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .readout-box {
-  background: #0A0A0A;
-  border: 1.5px solid #2e2e2e;
-  padding: 14px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
 }
 
 .readout-label {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  color: #999;
+  font-size: 11px;
+  color: var(--text-muted);
   text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .readout-num {
-  font-family: var(--font-mono);
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--emerald);
-  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 3px;
 }
 
 .readout-num.gold {
-  color: var(--bullion-light);
+  color: var(--crimson);
 }
 
 .chart-panel {
-  background: #161616;
-  border: 1.5px solid #333;
-  padding: 24px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  padding: 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 /* ----------------------------------------------------------------------------
-   SECTION 5: THE SOCRATIC & MONASTIC MANIFESTO (3 ULTRA-PUNCHY CARDS)
+   7. HISTORICAL HERITAGE & GOVERNANCE CHARTER (3 COLUMNS)
    ---------------------------------------------------------------------------- */
 .manifesto-grid {
   display: grid;
@@ -883,75 +929,64 @@ input[type="range"].oism-slider {
 }
 
 .manifesto-card {
-  background: var(--marble);
-  border: var(--border-brutal);
-  box-shadow: var(--shadow-brutal);
-  padding: 30px 26px;
+  background-color: var(--white);
+  border: 1px solid var(--border-dark);
+  border-top: 3px solid var(--navy);
+  padding: 26px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-}
-
-.manifesto-card:nth-child(2) {
-  background: var(--carbon);
-  color: var(--marble);
-  box-shadow: 6px 6px 0px var(--ultramarine);
-}
-
-.manifesto-card:nth-child(2) a {
-  color: var(--bullion-light);
 }
 
 .manifesto-num {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 800;
-  padding: 4px 10px;
-  border: 2px solid currentColor;
-  display: inline-block;
-  margin-bottom: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
 }
 
 .manifesto-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-  line-height: 1.15;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.3;
 }
 
 .manifesto-quote {
-  font-family: var(--font-classical);
+  font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
-  padding: 12px 14px;
-  border-left: 3px solid var(--bullion);
-  background: rgba(197, 160, 89, 0.1);
-  margin: 14px 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  border-left: 3px solid var(--gold);
+  background-color: var(--ivory);
+  margin: 12px 0;
 }
 
 /* ----------------------------------------------------------------------------
-   SECTION 6: PUBLIC CREDENTIAL VERIFICATION REGISTRY (/verify)
+   8. OFFICE OF THE REGISTRAR — CREDENTIAL VERIFICATION (/verify)
    ---------------------------------------------------------------------------- */
 .verify-console {
-  background: var(--marble);
-  border: var(--border-brutal);
-  box-shadow: var(--shadow-blue);
-  padding: 32px;
+  background-color: var(--white);
+  border: 1px solid var(--border-dark);
+  border-top: 3px solid var(--navy);
+  padding: 28px;
 }
 
 .verify-search-bar {
   display: flex;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .dossier-output {
-  border: 3px solid var(--carbon);
-  background: #FCFBF7;
-  padding: 28px;
-  position: relative;
+  border: 1px solid var(--border-dark);
+  background-color: var(--ivory);
+  padding: 26px;
 }
 
 .dossier-seal-header {
@@ -960,33 +995,31 @@ input[type="range"].oism-slider {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 16px;
-  border-bottom: 2px solid var(--carbon);
-  padding-bottom: 18px;
-  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .status-verified-pill {
-  background: var(--emerald);
-  color: var(--carbon);
-  font-family: var(--font-mono);
-  font-weight: 800;
+  background-color: #EBF5EE;
+  color: var(--success);
   font-size: 12px;
+  font-weight: 700;
   padding: 6px 12px;
-  border: 2px solid var(--carbon);
-  box-shadow: 3px 3px 0px var(--carbon);
+  border: 1px solid #A3C9B0;
+  border-radius: 2px;
 }
 
 .dossier-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 13px;
+  gap: 14px;
+  font-size: 13.5px;
 }
 
 .dossier-field {
-  background: var(--marble);
-  border: 1.5px solid var(--carbon);
+  background-color: var(--white);
+  border: 1px solid var(--border);
   padding: 12px 14px;
 }
 
@@ -995,56 +1028,60 @@ input[type="range"].oism-slider {
 }
 
 .dossier-label {
-  font-size: 10.5px;
-  color: #666;
+  font-size: 11px;
+  color: var(--text-muted);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-bottom: 4px;
+  font-weight: 600;
 }
 
 .dossier-val {
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--navy);
   word-break: break-all;
 }
 
 /* ----------------------------------------------------------------------------
-   FLOATING SCRIBE CHANCELLOR BOT DRAWER
+   9. ADMISSIONS & REGISTRAR HELP DESK WIDGET (Scribe Chancellor Bot)
    ---------------------------------------------------------------------------- */
 .scribe-fab {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1100;
-  background: var(--ultramarine);
-  color: var(--marble);
-  border: var(--border-brutal);
-  box-shadow: var(--shadow-brutal);
-  padding: 14px 20px;
-  font-family: var(--font-mono);
-  font-weight: 800;
-  font-size: 13px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: var(--navy);
+  color: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 12px 18px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13.5px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
+  gap: 8px;
 }
 
 .scribe-fab:hover {
-  background: var(--amber);
+  background-color: var(--crimson);
 }
 
 .scribe-drawer {
   position: fixed;
-  bottom: 84px;
-  right: 24px;
-  width: 410px;
+  bottom: 74px;
+  right: 20px;
+  width: 390px;
   max-width: calc(100vw - 32px);
-  height: 540px;
-  max-height: calc(100vh - 120px);
-  background: var(--marble);
-  border: 3px solid var(--carbon);
-  box-shadow: 10px 10px 0px var(--carbon);
-  z-index: 1101;
+  height: 510px;
+  max-height: calc(100vh - 110px);
+  background-color: var(--white);
+  border: 1px solid var(--border-dark);
+  border-top: 4px solid var(--navy);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+  z-index: 1001;
   display: none;
   flex-direction: column;
 }
@@ -1054,123 +1091,142 @@ input[type="range"].oism-slider {
 }
 
 .scribe-drawer-header {
-  background: var(--carbon);
-  color: var(--marble);
+  background-color: var(--navy);
+  color: var(--white);
   padding: 14px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--bullion);
 }
 
 .scribe-messages {
   flex: 1;
   overflow-y: auto;
   padding: 16px;
-  background: var(--marble-off);
+  background-color: var(--ivory);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   font-size: 13.5px;
 }
 
 .msg-bubble {
-  padding: 12px 14px;
-  border: 2px solid var(--carbon);
+  padding: 11px 14px;
+  border-radius: 3px;
   max-width: 90%;
   line-height: 1.5;
 }
 
 .msg-bubble.bot {
-  background: var(--marble);
+  background-color: var(--white);
+  border: 1px solid var(--border);
   align-self: flex-start;
-  box-shadow: 3px 3px 0px var(--ultramarine);
+  color: var(--text-main);
 }
 
 .msg-bubble.user {
-  background: var(--ultramarine);
-  color: var(--marble);
+  background-color: var(--navy);
+  color: var(--white);
   align-self: flex-end;
-  box-shadow: 3px 3px 0px var(--carbon);
 }
 
 .scribe-quick-chips {
   display: flex;
   gap: 6px;
   padding: 8px 12px;
-  background: #EAE8E1;
-  border-top: 1px solid var(--carbon);
+  background-color: var(--slate-bg);
+  border-top: 1px solid var(--border);
   overflow-x: auto;
-}
-
-.chip-btn {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  padding: 5px 8px;
-  background: var(--marble);
-  border: 1.5px solid var(--carbon);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.chip-btn:hover {
-  background: var(--bullion-light);
 }
 
 .scribe-input-row {
   display: flex;
-  border-top: 2px solid var(--carbon);
+  border-top: 1px solid var(--border-dark);
 }
 
 .scribe-input-row input {
   flex: 1;
   border: none;
   padding: 12px 14px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
   outline: none;
 }
 
 .scribe-input-row button {
-  background: var(--ultramarine);
-  color: var(--marble);
+  background-color: var(--navy);
+  color: var(--white);
   border: none;
-  border-left: 2px solid var(--carbon);
   padding: 0 18px;
-  font-family: var(--font-mono);
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 13px;
   cursor: pointer;
 }
 
 /* ----------------------------------------------------------------------------
-   FOOTER & STATUTORY LEGAL GUARDRAILS
+   10. MULTI-COLUMN ACADEMIC FOOTER & STATUTORY DISCLOSURES
    ---------------------------------------------------------------------------- */
 .site-footer {
-  background: var(--carbon);
-  color: #BDBDBD;
-  padding: 64px 0 48px;
-  font-size: 13px;
+  background-color: var(--navy-dark);
+  color: #C9D3DF;
+  padding: 56px 0 44px;
+  font-size: 13.5px;
+  border-top: 4px solid var(--gold);
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-col h4 {
+  font-family: var(--font-serif);
+  color: var(--white);
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #C9D3DF;
+  text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+  color: var(--white);
+  text-decoration: underline;
 }
 
 .legal-guardrail-box {
-  border: 1.5px solid #333;
-  background: #121212;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 20px 24px;
   margin-top: 28px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 12px;
   line-height: 1.65;
-  color: #9E9E9E;
+  color: #A8B5C4;
 }
 
-/* ----------------------------------------------------------------------------
-   RESPONSIVE BREAKPOINTS
-   ---------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .hero-grid,
+.legal-guardrail-box a {
+  color: #E2C686;
+}
+
+@media (max-width: 980px) {
+  .hero-layout,
   .voucher-engine-grid,
   .moon-interactive-grid,
-  .manifesto-grid {
+  .manifesto-grid,
+  .footer-columns {
     grid-template-columns: 1fr;
   }
   .benchmark-cards {
@@ -1179,16 +1235,16 @@ input[type="range"].oism-slider {
 }
 
 @media (max-width: 680px) {
-  .nav-links {
+  .primary-nav {
     display: none;
   }
-  .tuition-math-strip,
+  .at-a-glance-grid,
   .benchmark-cards,
   .dossier-grid {
     grid-template-columns: 1fr;
   }
-  .math-cell {
+  .glance-cell {
     border-right: none;
-    border-bottom: var(--border-brutal);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
 }

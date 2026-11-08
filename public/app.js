@@ -1,18 +1,11 @@
 /**
  * OISM.institute — Client Application Controller
- * Handles:
- *  - Live Decentralised Scribe Node Telemetry (NODE: ALPHA-ORIGIN vs NODE: EDGE-REPLICA)
- *  - Live Countdown to October 1, 2028 00:00:00 UTC
- *  - Interactive Institutional Domain Scarcity Checker & Voucher Submission
- *  - Interactive "Unbridled Capitalism" Endowment Moon-Math Calculator & SVG/Canvas Chart
- *  - Public Credential Verification Registry (/verify) with static JSON fallback
- *  - Scribe Chancellor Bot Drawer
+ * Institutional Seminary & Executive Education Edition
  */
 
 (function () {
-  let staticSnapshot = null;
-
   const BASE_PATH = window.location.pathname.startsWith("/oism.institute") ? "/oism.institute" : "";
+  let staticSnapshot = null;
 
   async function loadSnapshotFallback() {
     if (staticSnapshot) return staticSnapshot;
@@ -43,23 +36,22 @@
           window.location.hostname === "127.0.0.1";
         if (isOrigin) {
           dot.classList.remove("edge");
-          label.textContent = "NODE: ALPHA-ORIGIN (SOVEREIGN LAPTOP)";
+          label.textContent = "Registry Node: Primary Campus Origin (Online)";
         } else {
           dot.classList.add("edge");
-          label.textContent = "NODE: EDGE-REPLICA (CLOUDFLARE D1)";
+          label.textContent = "Registry Node: Distributed Edge Archive (D1)";
         }
         return;
       }
     } catch (e) {}
 
-    // Pure Static Fallback (GitHub Pages / Offline)
     dot.classList.add("edge");
-    label.textContent = "NODE: EDGE-REPLICA (STATIC FAILOVER)";
+    label.textContent = "Registry Node: Distributed Archival Mirror";
   }
 
   // 2. Countdown to October 1, 2028 00:00:00 UTC
   function startCountdown() {
-    const target = Date.UTC(2028, 9, 1, 0, 0, 0); // Month 9 is October
+    const target = Date.UTC(2028, 9, 1, 0, 0, 0);
     const elDays = document.getElementById("cd-days");
     const elHours = document.getElementById("cd-hours");
     const elMins = document.getElementById("cd-mins");
@@ -95,11 +87,11 @@
       .split("/")[0];
 
     if (!domain || !domain.includes(".")) {
-      out.innerHTML = `<span style="color:#FF4D00;font-weight:800;">INVALID DOMAIN:</span> Enter a school or corporate domain (e.g., <code>spartaschools.org</code>, <code>harvard.edu</code>, or <code>acme.com</code>).`;
+      out.innerHTML = `<strong style="color:#8B1E24;">Notice:</strong> Please enter a valid school, seminary, or corporate domain (e.g., <code>spartaschools.org</code>, <code>harvard.edu</code>, or <code>acme.com</code>).`;
       return;
     }
 
-    out.innerHTML = `Querying Sovereign Quota Ledger for <strong>${domain}</strong>...`;
+    out.innerHTML = `Consulting Registrar Allocation Ledger for <strong>${domain}</strong>...`;
 
     let quotaData = null;
     try {
@@ -124,7 +116,7 @@
       } else {
         const isHighSchool = domain.includes("k12") || domain.includes("schools") || domain.includes("high");
         const isEdu = domain.endsWith(".edu") || domain.includes("school");
-        const isOrg = domain.endsWith(".org") || domain.endsWith(".institute");
+        const isOrg = domain.endsWith(".org") || domain.includes("seminary") || domain.endsWith(".institute");
         const max = isHighSchool ? 2 : isEdu ? 3 : isOrg ? 2 : 5;
         const disc = isHighSchool ? 90 : isEdu ? 50 : isOrg ? 35 : 10;
         quotaData = {
@@ -144,19 +136,18 @@
     const netFee = Math.round(500 * (1 - disc / 100));
 
     out.innerHTML = `
-      <div style="color:#FF4D00;font-weight:800;margin-bottom:6px;">
-        ⚠️ SCARCITY ALERT: Only ${rem} of ${max} Institutional Vouchers remaining for [${domain}] for the 2028 Cycle.
+      <div style="color:#8B1E24;font-weight:700;margin-bottom:6px;font-family:var(--font-serif);">
+        Registrar Allocation Notice: ${rem} of ${max} Institutional Fee-Waiver Vouchers remaining for [${domain}] (2028 Cycle).
       </div>
-      <div>
-        • <strong>Eligible Subsidy Tier:</strong> ${disc}% OFF ($${netFee}.00 Net Cover Charge vs. $500.00 Base)<br>
-        • <strong>Directive:</strong> Request allocation below before your peers claim the remaining ${rem} slot(s).
+      <div style="font-size:13px;line-height:1.55;">
+        &bull; <strong>Authorized Subsidy Rate:</strong> ${disc}% Fee Waiver ($${netFee}.00 Net Evaluation Fee vs. $500.00 Standard Fee)<br>
+        &bull; <strong>Procedure:</strong> Submit your Guidance Counselor, Academic Advisor, or HR Director's contact information in Step 2 to reserve 1 of the remaining ${rem} institutional voucher(s).
       </div>
     `;
 
-    // Pre-fill domain into voucher request form if empty
     const gatekeeperEmail = document.getElementById("vf-gatekeeper-email");
     if (gatekeeperEmail && !gatekeeperEmail.value) {
-      gatekeeperEmail.placeholder = `counselor@${domain} or hr@${domain}`;
+      gatekeeperEmail.placeholder = `advisor@${domain} or hr@${domain}`;
     }
   }
 
@@ -196,7 +187,7 @@
       };
 
       statusBox.style.display = "block";
-      statusBox.innerHTML = `Transmitting Sovereign Subsidy Requisition to D1 Edge Ledger...`;
+      statusBox.innerHTML = `Recording Institutional Subsidy Requisition with the Office of Financial Aid...`;
 
       try {
         const res = await fetch("/api/voucher-request", {
@@ -207,38 +198,37 @@
         const data = await res.json();
         if (res.ok && data.ok) {
           statusBox.innerHTML = `
-            <div style="color:#008037;font-weight:800;margin-bottom:6px;">
-              ✓ REQUISITION LOGGED IN SOVEREIGN D1 LEDGER (ID #${data.request_id})
+            <div style="color:#1E5631;font-weight:700;margin-bottom:6px;font-family:var(--font-serif);">
+              ✓ Requisition Recorded (Reference #${data.request_id})
             </div>
-            <div>
-              • <strong>Institution Domain:</strong> <code>${data.institution_domain}</code> (${data.remaining_codes} of ${data.max_codes} slots left)<br>
-              • <strong>Subsidy Tier:</strong> ${data.discount_pct}% OFF ($${data.net_fee}.00 Net Cover Charge)<br>
-              • <strong>Gatekeeper Verification Link:</strong> <a href="${data.verify_url}" target="_blank">Click to Preview Counselor/HR 1-Click Confirmation Page</a>
+            <div style="font-size:13px;line-height:1.55;">
+              &bull; <strong>Institution Domain:</strong> <code>${data.institution_domain}</code> (${data.remaining_codes} of ${data.max_codes} annual vouchers remaining)<br>
+              &bull; <strong>Approved Waiver Tier:</strong> ${data.discount_pct}% Subsidy ($${data.net_fee}.00 Net Evaluation Fee)<br>
+              &bull; <strong>Gatekeeper Attestation Portal:</strong> <a href="${data.verify_url}" target="_blank">Open Official Counselor / HR Attestation Link</a>
             </div>
           `;
           return;
         } else {
-          statusBox.innerHTML = `<span style="color:#FF4D00;font-weight:800;">QUOTA / VALIDATION REJECTION:</span> ${data.error || "Unable to allocate code."}`;
+          statusBox.innerHTML = `<strong style="color:#8B1E24;">Allocation Notice:</strong> ${data.error || "Unable to process voucher requisition."}`;
           return;
         }
       } catch (err) {
-        // Static Fallback simulation when offline
         const domain = (payload.gatekeeper_email.split("@")[1] || "institution.edu").toLowerCase();
         const mockToken = "oism-stat-" + Math.random().toString(36).slice(2, 10);
         const verifyUrl = `${BASE_PATH}/verify-voucher/?token=${mockToken}&domain=${encodeURIComponent(domain)}&tier=${encodeURIComponent(payload.institution_type)}`;
         statusBox.innerHTML = `
-          <div style="color:#002FA7;font-weight:800;margin-bottom:6px;">
-            ✓ REQUISITION STAGED ON EDGE REPLICA (${domain})
+          <div style="color:#00204E;font-weight:700;margin-bottom:6px;font-family:var(--font-serif);">
+            ✓ Subsidy Requisition Logged for ${domain}
           </div>
-          <div>
-            • <strong>Gatekeeper 1-Click Release Link:</strong> <a href="${verifyUrl}">Open Counselor/HR Verification Portal</a>
+          <div style="font-size:13px;">
+            &bull; <strong>Gatekeeper Attestation Link:</strong> <a href="${verifyUrl}">Proceed to Counselor / HR Verification Page</a>
           </div>
         `;
       }
     });
   }
 
-  // 5. Endowment Moon-Math Calculator & Interactive Chart
+  // 5. Board of Trustees Endowment Actuarial Calculator & Chart
   function initMoonMathTerminal() {
     const sApplicants = document.getElementById("slider-applicants");
     const sFellows = document.getElementById("slider-fellows");
@@ -267,11 +257,11 @@
       const applicants = parseInt(sApplicants.value, 10);
       const fellows = parseInt(sFellows.value, 10);
       const avgCover = sDiscount ? parseInt(sDiscount.value, 10) : 385;
-      const overhead = 6.18; // Locked $6.18/yr Namecheap .institute + $0.00 Cloudflare
+      const overhead = 6.18;
 
       vApplicants.textContent = applicants.toLocaleString() + " Applicants";
       vFellows.textContent = fellows.toLocaleString() + " Fellows";
-      if (vCover) vCover.textContent = "$" + avgCover + " Weighted Avg";
+      if (vCover) vCover.textContent = "$" + avgCover + " Avg Fee";
 
       const coverRev = applicants * avgCover;
       const tuitionRev = fellows * 43800;
@@ -279,7 +269,6 @@
       const netRev = Math.max(0, grossRev - overhead);
       const efficiency = grossRev > 0 ? ((netRev / grossRev) * 100).toFixed(5) : "99.98000";
 
-      // 10-year compounding at 14.5% Sovereign Asymmetric Allocation yield
       const r = 0.145;
       const seriesOismPerStudent = [];
       let cumulativeEndowment = 0;
@@ -304,28 +293,26 @@
       const w = (c.width = 680);
       const h = (c.height = 340);
 
-      ctx.fillStyle = "#101010";
+      // Clean white/ivory academic report chart surface
+      ctx.fillStyle = "#FFFFFF";
       ctx.fillRect(0, 0, w, h);
 
-      const padL = 78;
+      const padL = 82;
       const padR = 28;
-      const padT = 32;
+      const padT = 34;
       const padB = 46;
       const plotW = w - padL - padR;
       const plotH = h - padT - padB;
 
-      // Benchmarks per student:
-      // Princeton Theological Seminary: $5.15M / student
-      // Harvard University: ~$2.20M / student ($55.67B / ~25,200 students)
       const ptsBench = 5154575;
       const harvardBench = 2200000;
       const maxVal = Math.max(ptsBench * 1.25, ...oismPerStudentSeries);
 
-      // Grid lines
-      ctx.strokeStyle = "#262626";
+      // Subtle academic horizontal grid lines
+      ctx.strokeStyle = "#E2E8F0";
       ctx.lineWidth = 1;
-      ctx.font = "11px 'JetBrains Mono', monospace";
-      ctx.fillStyle = "#888";
+      ctx.font = "11.5px 'Source Sans 3', sans-serif";
+      ctx.fillStyle = "#525A65";
       ctx.textAlign = "right";
 
       for (let i = 0; i <= 4; i++) {
@@ -340,31 +327,32 @@
 
       // Benchmark Line 1: Princeton Theological ($5.15M/student)
       const yPts = padT + plotH * (1 - ptsBench / maxVal);
-      ctx.strokeStyle = "#FF4D00";
+      ctx.strokeStyle = "#8B1E24";
       ctx.setLineDash([6, 4]);
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1.8;
       ctx.beginPath();
       ctx.moveTo(padL, yPts);
       ctx.lineTo(w - padR, yPts);
       ctx.stroke();
-      ctx.fillStyle = "#FF4D00";
+      ctx.fillStyle = "#8B1E24";
       ctx.textAlign = "left";
-      ctx.fillText("PRINCETON THEOLOGICAL ($5.15M / STUDENT)", padL + 8, yPts - 6);
+      ctx.font = "bold 11px 'Source Sans 3', sans-serif";
+      ctx.fillText("Princeton Theological Seminary ($5.15M / FTE)", padL + 8, yPts - 6);
 
       // Benchmark Line 2: Harvard ($2.20M/student)
       const yHarv = padT + plotH * (1 - harvardBench / maxVal);
-      ctx.strokeStyle = "#5588FF";
+      ctx.strokeStyle = "#00204E";
       ctx.beginPath();
       ctx.moveTo(padL, yHarv);
       ctx.lineTo(w - padR, yHarv);
       ctx.stroke();
-      ctx.fillStyle = "#5588FF";
-      ctx.fillText("HARVARD (~$2.20M / STUDENT, -$113M DEFICIT)", padL + 8, yHarv - 6);
+      ctx.fillStyle = "#00204E";
+      ctx.fillText("Harvard University (~$2.20M / FTE; -$113M Operating Deficit)", padL + 8, yHarv - 6);
       ctx.setLineDash([]);
 
-      // OISM Compounding Curve
-      ctx.strokeStyle = "#C5A059";
-      ctx.lineWidth = 3.5;
+      // OISM Compounding Curve (Institutional Brass/Gold)
+      ctx.strokeStyle = "#9A7B38";
+      ctx.lineWidth = 3;
       ctx.beginPath();
       oismPerStudentSeries.forEach((val, idx) => {
         const x = padL + (plotW * idx) / 9;
@@ -374,19 +362,19 @@
       });
       ctx.stroke();
 
-      // Points & Year Labels
       ctx.textAlign = "center";
+      ctx.font = "11px 'Source Sans 3', sans-serif";
       oismPerStudentSeries.forEach((val, idx) => {
         const x = padL + (plotW * idx) / 9;
         const y = padT + plotH * (1 - val / maxVal);
 
-        ctx.fillStyle = "#00C853";
+        ctx.fillStyle = "#00204E";
         ctx.beginPath();
-        ctx.arc(x, y, 4.5, 0, Math.PI * 2);
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = "#999";
-        ctx.fillText(`Y${idx + 1}`, x, h - 16);
+        ctx.fillStyle = "#525A65";
+        ctx.fillText(`Yr ${idx + 1}`, x, h - 16);
       });
     }
 
@@ -406,7 +394,7 @@
     const cleanInput = String(rawId || "OISM-2027-Ω-0001").trim();
     const normalized = cleanInput.toUpperCase().replace(/Ω/g, "OMEGA");
 
-    out.innerHTML = `<div style="font-family:var(--font-mono);padding:18px;">Querying Sovereign Cryptographic Registry for <strong>${cleanInput}</strong>...</div>`;
+    out.innerHTML = `<div style="padding:18px;color:var(--text-muted);">Searching Office of the Registrar Archives for <strong>${cleanInput}</strong>...</div>`;
 
     let cred = null;
     try {
@@ -431,12 +419,12 @@
 
     if (!cred) {
       out.innerHTML = `
-        <div class="dossier-output" style="border-color:#FF4D00;background:#FFF5F0;">
-          <div style="font-family:var(--font-mono);color:#FF4D00;font-weight:800;font-size:15px;">
-            ✗ UNRECOGNIZED SERIAL HASH: [${cleanInput}]
+        <div class="dossier-output" style="border-left:4px solid #8B1E24;">
+          <div style="color:#8B1E24;font-weight:700;font-family:var(--font-serif);font-size:16px;">
+            No Record Found for Serial Number: [${cleanInput}]
           </div>
-          <p style="margin-top:8px;font-family:var(--font-mono);font-size:12.5px;">
-            No active Sovereign Fellow dossier matched that serial ID. Try the Founding Chancellor's genesis credential:
+          <p style="margin-top:8px;font-size:13.5px;color:var(--text-muted);">
+            The Office of the Registrar could not locate an active dossier matching that identifier. To view the Founding Chancellor's record, search for:
             <code>OISM-2027-Ω-0001</code>
           </p>
         </div>
@@ -452,10 +440,10 @@
       <div class="dossier-output">
         <div class="dossier-seal-header">
           <div>
-            <div style="font-family:var(--font-mono);font-size:11px;color:#002FA7;font-weight:700;">
-              OMEGA INSTITUTUM DOMINII SUPREMI // PUBLIC VERIFICATION LEDGER
+            <div style="font-size:11.5px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">
+              Omega Institutum Dominii Supremi &bull; Office of the Registrar
             </div>
-            <h3 style="font-family:var(--font-classical);font-size:1.65rem;margin-top:4px;">
+            <h3 style="font-family:var(--font-serif);font-size:1.55rem;color:var(--navy);margin-top:4px;">
               ${fullStack}
             </h3>
           </div>
@@ -467,46 +455,46 @@
         <div class="dossier-grid">
           <div class="dossier-field">
             <div class="dossier-label">Credential Serial Number</div>
-            <div class="dossier-val">${displaySerial} <span style="color:#666;font-weight:400;">(${cred.serial_id})</span></div>
+            <div class="dossier-val">${displaySerial} <span style="color:var(--text-muted);font-weight:400;">(${cred.serial_id})</span></div>
           </div>
           <div class="dossier-field">
-            <div class="dossier-label">Cohort & Induction Window</div>
+            <div class="dossier-label">Cohort &amp; Academic Session</div>
             <div class="dossier-val">${cred.cohort}</div>
           </div>
           <div class="dossier-field full">
-            <div class="dossier-label">Conferred Honoris Causa & Clerical Designation</div>
-            <div class="dossier-val" style="color:#002FA7;font-size:14.5px;">${cred.degree_title}</div>
+            <div class="dossier-label">Conferred Honoris Causa &amp; Clerical Title</div>
+            <div class="dossier-val" style="font-family:var(--font-serif);font-size:15px;">${cred.degree_title}</div>
           </div>
           <div class="dossier-field">
-            <div class="dossier-label">Timestamp of Investiture</div>
+            <div class="dossier-label">Date of Conferral</div>
             <div class="dossier-val">${cred.issued_at}</div>
           </div>
           <div class="dossier-field">
-            <div class="dossier-label">Issuing Authority</div>
-            <div class="dossier-val">Clerical Order of the Unburned Library & Sovereign Endowment</div>
+            <div class="dossier-label">Conferring Authority</div>
+            <div class="dossier-val">Clerical Order of the Unburned Library &amp; Board of Trustees</div>
           </div>
           <div class="dossier-field full">
-            <div class="dossier-label">Cryptographic SHA-256 Registry Digest</div>
-            <div class="dossier-val" style="font-size:11.5px;color:#333;">${cred.sha256_hash}</div>
+            <div class="dossier-label">Cryptographic SHA-256 Archival Digest</div>
+            <div class="dossier-val" style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">${cred.sha256_hash}</div>
           </div>
         </div>
 
         <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
-          <div style="font-family:var(--font-mono);font-size:11px;color:#555;">
-            Statutory Compliance: Honorary philosophical & clerical title (MCL 390.1601–390.1605).
+          <div style="font-size:12px;color:var(--text-muted);">
+            Statutory Classification: Honorary philosophical &amp; ecclesiastical credential (MCL 390.1601–390.1605).
           </div>
           <div style="display:flex;gap:10px;">
-            <button type="button" class="btn-brutal secondary" id="btn-preview-diploma" style="padding:10px 16px;font-size:11.5px;">
-              📜 RENDER 11"×8.5" ARCHIVAL DIPLOMA
+            <button type="button" class="btn-brutal secondary" id="btn-preview-diploma">
+              Preview Archival Diploma
             </button>
-            <button type="button" class="btn-brutal" id="btn-print-diploma" style="padding:10px 16px;font-size:11.5px;">
-              🖨️ PRINT / EXPORT PDF DIPLOMA
+            <button type="button" class="btn-brutal" id="btn-print-diploma">
+              Print / Export Official PDF
             </button>
           </div>
         </div>
 
-        <div id="inline-diploma-preview-wrap" style="display:none;margin-top:22px;border-top:2px solid #0A0A0A;padding-top:18px;text-align:center;">
-          <canvas id="inline-diploma-canvas" style="width:100%;max-width:860px;height:auto;border:2px solid #0A0A0A;box-shadow:6px 6px 0px #0A0A0A;"></canvas>
+        <div id="inline-diploma-preview-wrap" style="display:none;margin-top:22px;border-top:1px solid var(--border-dark);padding-top:18px;text-align:center;">
+          <canvas id="inline-diploma-canvas" style="width:100%;max-width:860px;height:auto;border:1px solid var(--border-dark);box-shadow:0 4px 16px rgba(0,0,0,0.12);"></canvas>
         </div>
       </div>
     `;
@@ -542,7 +530,6 @@
       }
     });
 
-    // Check URL query parameter ?id=... or #verify
     const params = new URLSearchParams(window.location.search);
     const idFromUrl = params.get("id");
     if (idFromUrl) {
@@ -603,10 +590,9 @@
         }
       } catch (e) {}
 
-      // Client-side deterministic fallback if static-only
       appendMessage(
         "bot",
-        `In 399 BCE, Socrates declared (*Plato's Apology* 32a) that *"he who will fight for the right, if he would live even for a little while, must have a private station and not a public one."*\n\n• **Cohort 2027 (Founding Beta):** 100% LOCKED — By Sovereign Invitation Only.\n• **Cohort 2028 Public Drop:** Oct 1 – Oct 31, 2028 (<0.0004% Admission Odds).\n• **Tuition Math:** 12 mins/day × 365 days = 4,380 mins/yr @ $10.00/min = **$43,800/yr**.\n• **Fee Relief:** Have your High School Guidance Counselor or Corporate HR Director verify your standing in Section 3 to unlock a 10%–90% subsidy code.`
+        `In 399 BCE, Socrates advised the Athenian assembly (*Plato's Apology* 32a) that *"he who will fight for the right, if he would live even for a little while, must have a private station and not a public one."*\n\n• **Cohort 2027 (Founding Beta):** 100% Locked — By Committee Invitation Only.\n• **Cohort 2028 Application Window:** Oct 1 – Oct 31, 2028 (<0.0004% Admission Probability).\n• **Tuition Schedule:** 12 mins/day × 365 days = 4,380 mins/yr @ $10.00/min = **$43,800/yr**.\n• **Institutional Fee Waivers:** Candidates may request a 10%–90% evaluation fee waiver through their High School Guidance Counselor or Corporate HR Director in the Financial Aid section above.`
       );
     }
 
@@ -620,7 +606,7 @@
       });
     }
 
-    document.querySelectorAll(".chip-btn").forEach((chip) => {
+    document.querySelectorAll(".chip-btn[data-prompt]").forEach((chip) => {
       chip.addEventListener("click", () => {
         sendPrompt(chip.getAttribute("data-prompt"));
       });
